@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "https://min-site-4qma6.ondigitalocean.app"
 languageCode = "en-us"
 title = "Min side"
 theme = "hugo-digital-garden-theme"

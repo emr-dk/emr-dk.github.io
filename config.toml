@@ -1,4 +1,4 @@
-baseURL = "localhost"
+baseURL = ""
 languageCode = "en-us"
 title = "Min side"
 theme = "hugo-digital-garden-theme"

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>samfund on Min side</title>
+    <link>/library_tags/samfund/</link>
+    <description>Recent content in samfund on Min side</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Emil Møller Rasmussen ©</copyright>
+    <lastBuildDate>Fri, 23 Sep 2022 20:47:01 +0200</lastBuildDate><atom:link href="/library_tags/samfund/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Orwell&#39;s Roses</title>
+      <link>/library/book-orwellroses/</link>
+      <pubDate>Fri, 23 Sep 2022 20:47:01 +0200</pubDate>
+      
+      <guid>/library/book-orwellroses/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Den forsvundne fuldmægtig</title>
+      <link>/library/book-fuldmaegtig/</link>
+      <pubDate>Thu, 22 Sep 2022 20:47:01 +0200</pubDate>
+      
+      <guid>/library/book-fuldmaegtig/</guid>
+      <description>Satire over vanemenneskets afhængighed af den borgerlige tilværelses konvention og disciplin.</description>
+    </item>
+    
+    <item>
+      <title>The Utopia of Rules: On Technology, Stupidity, and the Secret Joys of Bureaucracy</title>
+      <link>/library/book-bureaucracy/</link>
+      <pubDate>Thu, 22 Sep 2022 20:47:01 +0200</pubDate>
+      
+      <guid>/library/book-bureaucracy/</guid>
+      <description>Where does the desire for endless rules, regulations, and bureaucracy come from? How did we come to spend so much of our time filling out forms? And is it really a cipher for state violence?.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>arbejdere on Min side</title>
+    <link>/library_tags/arbejdere/</link>
+    <description>Recent content in arbejdere on Min side</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Emil Møller Rasmussen ©</copyright>
+    <lastBuildDate>Sun, 09 Oct 2022 16:54:01 +0200</lastBuildDate><atom:link href="/library_tags/arbejdere/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Jungle</title>
+      <link>/library/book-thejungle/</link>
+      <pubDate>Sun, 09 Oct 2022 16:54:01 +0200</pubDate>
+      
+      <guid>/library/book-thejungle/</guid>
+      <description>An exposé of the conditions on the Chicago Stockyards in 1906</description>
+    </item>
+    
+  </channel>
+</rss>

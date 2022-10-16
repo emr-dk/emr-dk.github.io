@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Library on Min side</title>
-    <link>/library/</link>
-    <description>Recent content in Library on Min side</description>
+    <title>Bibliotek on Min side</title>
+    <link>https://min-site-4qma6.ondigitalocean.app/library/</link>
+    <description>Recent content in Bibliotek on Min side</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>da-dk</language>
     <copyright>Emil Møller Rasmussen ©</copyright>
-    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/library/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://min-site-4qma6.ondigitalocean.app/library/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Jungle</title>
-      <link>/library/book-thejungle/</link>
+      <link>https://min-site-4qma6.ondigitalocean.app/library/book-thejungle/</link>
       <pubDate>Sun, 09 Oct 2022 16:54:01 +0200</pubDate>
       
-      <guid>/library/book-thejungle/</guid>
+      <guid>https://min-site-4qma6.ondigitalocean.app/library/book-thejungle/</guid>
       <description>An exposé of the conditions on the Chicago Stockyards in 1906</description>
     </item>
     
     <item>
       <title>A Pipeline Runs Through It</title>
-      <link>/library/book-pipeline/</link>
+      <link>https://min-site-4qma6.ondigitalocean.app/library/book-pipeline/</link>
       <pubDate>Sat, 24 Sep 2022 20:47:01 +0200</pubDate>
       
-      <guid>/library/book-pipeline/</guid>
+      <guid>https://min-site-4qma6.ondigitalocean.app/library/book-pipeline/</guid>
       <description>The story of oil from ancient times to the first world war</description>
     </item>
     
     <item>
       <title>Orwell&#39;s Roses</title>
-      <link>/library/book-orwellroses/</link>
+      <link>https://min-site-4qma6.ondigitalocean.app/library/book-orwellroses/</link>
       <pubDate>Fri, 23 Sep 2022 20:47:01 +0200</pubDate>
       
-      <guid>/library/book-orwellroses/</guid>
+      <guid>https://min-site-4qma6.ondigitalocean.app/library/book-orwellroses/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Den forsvundne fuldmægtig</title>
-      <link>/library/book-fuldmaegtig/</link>
+      <link>https://min-site-4qma6.ondigitalocean.app/library/book-fuldmaegtig/</link>
       <pubDate>Thu, 22 Sep 2022 20:47:01 +0200</pubDate>
       
-      <guid>/library/book-fuldmaegtig/</guid>
+      <guid>https://min-site-4qma6.ondigitalocean.app/library/book-fuldmaegtig/</guid>
       <description>Satire over vanemenneskets afhængighed af den borgerlige tilværelses konvention og disciplin.</description>
     </item>
     
     <item>
       <title>The Utopia of Rules: On Technology, Stupidity, and the Secret Joys of Bureaucracy</title>
-      <link>/library/book-bureaucracy/</link>
+      <link>https://min-site-4qma6.ondigitalocean.app/library/book-bureaucracy/</link>
       <pubDate>Thu, 22 Sep 2022 20:47:01 +0200</pubDate>
       
-      <guid>/library/book-bureaucracy/</guid>
+      <guid>https://min-site-4qma6.ondigitalocean.app/library/book-bureaucracy/</guid>
       <description>Where does the desire for endless rules, regulations, and bureaucracy come from? How did we come to spend so much of our time filling out forms? And is it really a cipher for state violence?.</description>
     </item>
     

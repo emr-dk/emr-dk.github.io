@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on Min side</title>
-    <link>/projects/</link>
-    <description>Recent content in Projects on Min side</description>
+    <title>Projekter on Min side</title>
+    <link>https://min-site-4qma6.ondigitalocean.app/projects/</link>
+    <description>Recent content in Projekter on Min side</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>da-dk</language>
     <copyright>Emil Møller Rasmussen ©</copyright>
-    <lastBuildDate>Sat, 31 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Sep 2022 20:47:55 +0200</lastBuildDate><atom:link href="https://min-site-4qma6.ondigitalocean.app/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Et forsøg med kundesegmentering</title>
-      <link>/projects/project1/</link>
+      <link>https://min-site-4qma6.ondigitalocean.app/projects/project1/</link>
       <pubDate>Sat, 24 Sep 2022 20:47:55 +0200</pubDate>
       
-      <guid>/projects/project1/</guid>
+      <guid>https://min-site-4qma6.ondigitalocean.app/projects/project1/</guid>
       <description>Her prøver jeg, med udgangspunkt i materiale tilgængeligt på nettet, at lære lidt om hvordna man segmenterer kunder</description>
     </item>
     
     <item>
       <title>Et hurtigt projekt</title>
-      <link>/projects/project2/</link>
+      <link>https://min-site-4qma6.ondigitalocean.app/projects/project2/</link>
       <pubDate>Sat, 24 Sep 2022 20:47:55 +0200</pubDate>
       
-      <guid>/projects/project2/</guid>
+      <guid>https://min-site-4qma6.ondigitalocean.app/projects/project2/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Opsætning af Hugo site på DigitalOcean</title>
+      <link>https://min-site-4qma6.ondigitalocean.app/projects/project3/</link>
+      <pubDate>Sat, 24 Sep 2022 20:47:55 +0200</pubDate>
+      
+      <guid>https://min-site-4qma6.ondigitalocean.app/projects/project3/</guid>
+      <description>Lær at arbejde med Git, Hugo og Digital Ocean</description>
     </item>
     
   </channel>

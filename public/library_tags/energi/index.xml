@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>energi on Min side</title>
-    <link>/library_tags/energi/</link>
+    <link>https://min-site-4qma6.ondigitalocean.app/library_tags/energi/</link>
     <description>Recent content in energi on Min side</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>da-dk</language>
     <copyright>Emil Møller Rasmussen ©</copyright>
-    <lastBuildDate>Sat, 24 Sep 2022 20:47:01 +0200</lastBuildDate><atom:link href="/library_tags/energi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Sep 2022 20:47:01 +0200</lastBuildDate><atom:link href="https://min-site-4qma6.ondigitalocean.app/library_tags/energi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Pipeline Runs Through It</title>
-      <link>/library/book-pipeline/</link>
+      <link>https://min-site-4qma6.ondigitalocean.app/library/book-pipeline/</link>
       <pubDate>Sat, 24 Sep 2022 20:47:01 +0200</pubDate>
       
-      <guid>/library/book-pipeline/</guid>
+      <guid>https://min-site-4qma6.ondigitalocean.app/library/book-pipeline/</guid>
       <description>The story of oil from ancient times to the first world war</description>
     </item>
     

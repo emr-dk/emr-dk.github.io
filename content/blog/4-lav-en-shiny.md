@@ -1,7 +1,7 @@
 ---
 title: "Hvorfor denne side?"
 date: 2022-10-09T10:44:19+02:00
-draft: true
+draft: false
 summary: "Lidt om mine overvejelser ved at oprette denne side"
 status: "blabla"
 ---

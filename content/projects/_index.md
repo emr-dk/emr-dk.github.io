@@ -1,6 +1,6 @@
 ---
-title: "Projects"
-date: 2021-07-31
+title: "Projekter"
+date: 2022-06-31
 draft: false
-summary: "Discover what I do in my spare time"
+summary: "Applikationer og deslige"
 ---

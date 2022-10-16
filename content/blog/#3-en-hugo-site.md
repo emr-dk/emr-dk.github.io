@@ -27,3 +27,8 @@ Hvorfor blev det Hugo?
 Min Hugo site er deployed på Digital Ocean. Eneste grund til jeg egentlig bruger denne platform er at jeg i sin tid fik nogle credits - nok for ca. $100. (Du kan også få nogen hvis du vil, bare klik [her](https://m.do.co/c/b5fbaf11d029). Du får $200 og jeg får $25 hver gang du bruger $25).
 Derudover synes jeg Digital Ocean er relativt nemt at arbejde med - i hvert fald i forhold til det mareridt Amazon AWS var dengang jeg begyndte at kigge på cloud løsninger. 
 
+Min side er sat sådan op at alt arbejde arbejde jeg laver foregår lokalt på min egen computer. Faktisk bruger jeg Ubuntu gennem WSL2 på en Windows maskine - det fungerer virkelig godt for den her brug i hvert fald. [1;5D[1;5D[1;5D[1;5DC:\Users\barto\Documents\Projekter\website\hugo-dig
+Jeg udarbejder rettelser og nye blog posts på min maskine og pusher dem så til Github, hvorfra DigitalOcean så ombygger min Hugo site når jeg pusher til min Git. Det fungerer i det store hele upåklageligt. En fordel ved denne model er at man har et par gratis hosts af statiske websider gennem digital ocean, så man skal ikke engang tænke på noget der.
+
+	git init
+ 

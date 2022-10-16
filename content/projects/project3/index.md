@@ -71,5 +71,6 @@ Og når du så skal opdatere det en gang i fremtiden kan du bare lave et pull
 Jeg har selv clonet det theme jeg bruger, og foretaget rettelser i det. Derefter har jeg pushet de rettelser til min Github konto og bruger så denne kopi som udgangspunkt for mit site. 
 
 ## Opsætning på DigitalOcean
-Så er det om at komme i gang på DigitalOcean. Opret en konto og evt. et projekt 
+Så er det om at komme i gang på DigitalOcean. Opret en konto og evt. et projekt og så kan vi komme i gang.
 
+Vælg create -> App

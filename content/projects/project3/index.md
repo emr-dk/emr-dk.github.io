@@ -59,18 +59,28 @@ Dette giver en fin interaktiv vejledning som er nem nok at følge med i, dog ska
 Sidst i din terminal fortæller den også at den her _pushed commits to <url til nyoprettede git>_. Altså er der nu en kobling mellem din lokale git og den du finder på Github.
 
  ## Skal du bruge et theme
- Én af de ting der fik mig til at bruge Hugo var nemheden i at tilføje et nyt tema. Hvis du, som mig, også er interesseret i dette kan du finde en lang, lang række temaer (her)[https://themes.gohugo.io/]. Hvis du befinder dig i dit projekts grundfolder kan du gøre følgende:
+ Én af de ting der fik mig til at bruge Hugo var nemheden i at tilføje et nyt tema. Hvis du, som mig, også er interesseret i dette kan du finde en lang, lang række temaer (her)[https://themes.gohugo.io/]. 
+ 
+ Jeg opdagede at der var en lang række udfordringer ved at bare at clone et repo som theme, men at det virkede perfekt som submodule. Så det gør vi.
+ 
+ Hvis du befinder dig i dit projekts grundfolder kan du gøre følgende:
 
-    cd themes
-    git clone <repo>
+    git submodule add <repo .git> 
 
 Og når du så skal opdatere det en gang i fremtiden kan du bare lave et pull
 
-    git pull
+    git submodule update
 
-Jeg har selv clonet det theme jeg bruger, og foretaget rettelser i det. Derefter har jeg pushet de rettelser til min Github konto og bruger så denne kopi som udgangspunkt for mit site. 
+Jeg har selv clonet det theme jeg bruger, og foretaget rettelser i det. Derefter har jeg pushet de rettelser til min Github konto og bruger så dette som et submodule. 
 
 ## Opsætning på DigitalOcean
 Så er det om at komme i gang på DigitalOcean. Opret en konto og evt. et projekt og så kan vi komme i gang.
 
 Vælg create -> App
+
+
+
+### Kilder
+
+https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+https://www.djpeacher.com/posts/quick-hugo-deploy-with-github-actions/

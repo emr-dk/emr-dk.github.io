@@ -1,4 +1,4 @@
-baseURL = "https://min-site-5h5ap.ondigitalocean.app/"
+baseURL = "http://emr-dk.github.io"
 languageCode = "en-US"
 title = "Min side"
 theme = "hugo-digital-garden-theme"

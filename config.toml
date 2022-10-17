@@ -1,5 +1,5 @@
 baseURL = "https://min-site-5h5ap.ondigitalocean.app/"
-languageCode = "da-dk"
+languageCode = "en-US"
 title = "Min side"
 theme = "hugo-digital-garden-theme"
 themesdir = "themes"

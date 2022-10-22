@@ -76,8 +76,6 @@ Jeg har selv clonet det theme jeg bruger, og foretaget rettelser i det. Derefter
 ## Opsætning på DigitalOcean
 Så er det om at komme i gang på DigitalOcean. Opret en konto og evt. et projekt og så kan vi komme i gang.
 
-Vælg create -> App
-
 
 
 ### Kilder

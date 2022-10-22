@@ -9,7 +9,7 @@ copyright = "Emil Møller Rasmussen ©"
 [params]
   name = "Emil"
   description = ""
-  initials = "E"
+  initials = ""
   googleAnalytics = ""
 
   [[params.social]]

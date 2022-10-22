@@ -1,13 +1,11 @@
 ---
-title: "Hvorfor denne side?"
+title: "Opsætning af shiny"
 date: 2022-10-09T10:44:19+02:00
 draft: false
 summary: "Lidt om mine overvejelser ved at oprette denne side"
 status: "blabla"
 ---
 
-Det første spørgsmål der måske rammer dig, kære læser, er hvorfor har jeg dog startet denne side? For det første
-har jeg gjort det som et læringsprojekt. Jeg har tidligere prøvet at lave webapplikationer og små funktioner til almen
-brug, men har ikke haft noget sted at dele dem. Så det har jeg nu. Det vil fungere som et repositorie for en masse viden
-og færdigheder som jeg over tid vil ophobe - og dermed både fungere som dokumentationssted men forhåbentlig vil jeg også
-blive bedre til at formidle ... mig selv, samt det jeg kan. 
+En visualiseringsmotor som jeg længe har tænkt jeg gerne vil prøve at fyre af er Shiny. Shiny er en webapplikationsmotor for sproget R. Jeg har selv arbejdet med R, men kan stadig lære en masse, og vil derfor gerne udforske flere muligheder i sproget. 
+
+Når der skal visualiseres noget på nettet er det "nemt" at falde for ideen om at bygge en webapplikation op fra bunden i JavaScript, men det kræver hurtigt utroligt mange timers arbejde for at komme i drift. Derfor vil jeg gerne undersøge mulighederne for hurtigt og nemt at kunne prototype og udstille en relevant problemstilling. Men før at dette kan lade sig gøre skal den selvfølgelig sættes op. Der var en oplagt mulighed for at bruge (shinyapps.io)[shinyapps.io], men pointen her er jo ligesom også at forstå, hvordan tingene virker!

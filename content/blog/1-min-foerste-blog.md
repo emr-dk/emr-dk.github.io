@@ -9,3 +9,5 @@ status: "blabla"
 Jeg har startet denne side først og fremmest, som et læringsprojekt. Jeg har tidligere prøvet at udvikle webapplikationer, funktioner og visualiseringer til forskellig brug, men har ikke haft noget sted at dele dem - eller beskrive processen omkring dem. Så det har jeg nu. Ikke at jeg forestiller mig at det jeg laver vil ændre verden, men mere så jeg nemmere kan samle helheden.
 
 Derudover vil jeg gerne blive bedre til at formulere mig selv og formidle de ting jeg sidder og laver. Derudover er det en form for levende CV som kan vise forskellige anvendelser - enten via den tilhørende Github eller de applikationer der vil være live. 
+
+Jeg håber også at jeg kan blive bedre til at indse at alt ikke er perfekt første gang. Jeg har svært ved ikke at tabe fokus, på et igangværende projekt fordi jeg ikke føler det er alt hvad det kan være. Særligt når det skal udstilles i den virkelige verden.   

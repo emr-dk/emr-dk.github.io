@@ -9,7 +9,7 @@ copyright = "Emil Møller Rasmussen ©"
 [params]
   name = "Emil"
   description = ""
-  initials = ""
+  initials = "EMR"
   googleAnalytics = ""
 
   [[params.social]]
@@ -19,7 +19,7 @@ copyright = "Emil Møller Rasmussen ©"
 
   [[params.social]]
     name = "Github"
-    link = "github.com/gisemil"
+    link = "github.com/emr-dk"
     icon = "fab fa-github"
 
   [[params.social]]

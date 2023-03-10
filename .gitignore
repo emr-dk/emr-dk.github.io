@@ -1,3 +1,5 @@
-public
-.hugo_build.lock
-themes/hugo-digital-garden-theme/.git
+.sass-cache/
+.jekyll-metadata
+node_modules
+.vscode
+_site/

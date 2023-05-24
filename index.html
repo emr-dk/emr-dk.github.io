@@ -1,3 +1,661 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Emil Rasmussen | Data</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="My First Website">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Bulma -->
+  <link rel="stylesheet" href="./static/bulma.min.css">
+
+  <!-- Devicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Quicksand:wght@300;400&display=swap&family=Roboto&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900" rel="stylesheet">
+  <!-- D3 -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Data -->
+  <script src="./static/data/penguins.json"></script>
+
+  <!-- custom font -->
+  <link rel="stylesheet" href="./static/myfont/style.css">
+</head>
+<style>
+  body {
+  }
+
+  :root {
+    --main-color-sc1: #1a50b9;
+    --second-color-sc1: #ced4de ;
+    --third-color-sc1: #f7ce0b;
+    --fourth-color-sc1: #00173b;
+    --fifth-color-sc1: #faf4e7;
+    --sixth-color-sc1: #c8a772;
+    /*
+    --main-color-sc1: #2A9D8F;
+    --second-color-sc1: #E76F51 ;
+    --third-color-sc1: #E9C46A;
+    --fourth-color-sc1: #264653;
+    --fifth-color-sc1: #faf4e7;
+    --sixth-color-sc1: #E9C46A;
+    
+    /* Main-color er baggrundsfarven
+      second-color er tekst på nederste del
+      third-color er tekst på øverste del
+      fourth-color er baggrundsfarven på nederste del
+    
+    --main-color-sc1: #4e7cfa;
+    --second-color-sc1: #edf4f0 ;
+    --third-color-sc1: #040004;
+    --fourth-color-sc1: #f8f0ad;
+    --fifth-color-sc1: #faf4e7;
+    --sixth-color-sc1: #c8a772;
+    */
+    /* BACKUP AF BEDSTE FARVE
+       --main-color-sc1: #1a50b9;
+    --second-color-sc1: #ced4de ;
+    --third-color-sc1: #f7ce0b;
+    --fourth-color-sc1: #00173b;
+    --fifth-color-sc1: #faf4e7;
+    --sixth-color-sc1: #c8a772;
+  */
+  }
+
+
+
+  .coding-font {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 300;
+  }
+
+  #landing-font {
+    font-family: 'League Spartan', sans-serif;
+  }
+
+  .content p {
+    font-family: 'League Spartan'
+  } 
+
+  .social-icons:hover {
+    color: var(--main-color-sc1);
+    border-color: var(--main-color-sc1);
+    background-color: var(--third-color-sc1)
+  }
+
+  
+  .skill-icons {
+    font-size: 3em;
+    color: var(--third-color-sc1);
+  }
+
+  .social-icons {
+    border-radius: 50%; 
+    border-style: solid; 
+    border-width: 1px;
+    color: var(--third-color-sc1);
+    background-color: rgba(0,0,0,0);
+    font-size: 1em;
+  }
+
+/*
+  #background-cover {
+    background: url(/static/images/bck.svg) no-repeat center center ; 
+  }
+*/
+  .user {
+    color: #E07A5F;
+  }
+
+  .typed-cursor{
+    color: white;
+    display: inline-block !important; 
+  }
+
+  .main-section {
+    background-color: var(--main-color-sc1);
+    color: var(--third-color-sc1);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuZGV2L3N2Z2pzIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCIgd2lkdGg9IjcwMCIgaGVpZ2h0PSI3MDAiIG9wYWNpdHk9IjAuMjYiPjxkZWZzPjxmaWx0ZXIgaWQ9Im5ubm9pc2UtZmlsdGVyIiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHByaW1pdGl2ZVVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJsaW5lYXJSR0IiPgoJPGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuMiIgbnVtT2N0YXZlcz0iNCIgc2VlZD0iMTUiIHN0aXRjaFRpbGVzPSJzdGl0Y2giIHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcmVzdWx0PSJ0dXJidWxlbmNlIj48L2ZlVHVyYnVsZW5jZT4KCTxmZVNwZWN1bGFyTGlnaHRpbmcgc3VyZmFjZVNjYWxlPSIzMiIgc3BlY3VsYXJDb25zdGFudD0iMC45IiBzcGVjdWxhckV4cG9uZW50PSIyMCIgbGlnaHRpbmctY29sb3I9ImhzdigyMTgsIDclLCA4NyUpIiB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGluPSJ0dXJidWxlbmNlIiByZXN1bHQ9InNwZWN1bGFyTGlnaHRpbmciPgogICAgCQk8ZmVEaXN0YW50TGlnaHQgYXppbXV0aD0iMyIgZWxldmF0aW9uPSIxMTgiPjwvZmVEaXN0YW50TGlnaHQ+CiAgCTwvZmVTcGVjdWxhckxpZ2h0aW5nPgogIAo8L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9IjcwMCIgaGVpZ2h0PSI3MDAiIGZpbGw9IiMyMDBjZWRmZiI+PC9yZWN0PjxyZWN0IHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiBmaWxsPSJoc3YoMjE4LCA3JSwgODclKSIgZmlsdGVyPSJ1cmwoI25ubm9pc2UtZmlsdGVyKSI+PC9yZWN0Pjwvc3ZnPg==)
+  }
+
+  .section {
+    background-color: var(--fourth-color-sc1);
+    color: var(--second-color-sc1);
+  }
+
+  .section i, h4 {
+    color: var(--second-color-sc1) !important;
+  }
+
+  .main-section p {
+    color: var(--third-color-sc1);
+  }
+
+  .user-text {
+    display: inline-block;
+    color: #83D182
+  }
+
+  .user-drive {
+    display: inline-block;
+    color: #6D9CBE;
+  }
+
+ 
+  .terminal-text {
+    color: white !important;
+  }
+    
+  p, h1, h2, h3, h4, h5, h6, .title, .subtitle {
+    color: var(--third-color-sc1);
+  } 
+
+  .italic {
+    font-style: italic;
+    display: inline-flex
+  }
+
+  .refreshSkills {
+    left: -1em;
+    position: relative;
+    top: -1em;
+    color: var(--third-color-sc1);
+    transition: transform .7s ease-in-out;
+    font-size: 60%;
+    background-color: rgba(0,0,0,0);
+  }
+
+  .refreshSkills:hover{
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+  }
+  
+  strong {
+    color: var(--third-color-sc1);
+    font-weight: bold;
+  }
+
+</style>
+<body>
+  <section class="hero main-section is-fullheight">
+    <div class="hero-head">
+      <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+
+        </div>
+      
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start">
+          </div>
+      
+          <div class="navbar-end">
+            <!--
+            <div class="navbar-item">
+              <p>About</p>
+            </div>
+            <div class="navbar-item">
+              <p>Skills</p>
+            </div>
+            -->
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-two-fifths">
+            <!--
+            <span style="top: -0.4em; left: -1em" class="is-italic">hi my name is</span>
+            -->
+            <h1 id="landing-font" class="title is-1">
+              Emil Møller Rasmussen
+            </h1>
+
+            <div class="content">
+            <p class="has-text-justified has-text-weight-light is-size-4 is-italic">I am a <strong>passionate</strong> geographer and <strong>data scientist</strong> dedicated to exploring the world through the lens of data. My focus areas are big data analysis, statistical inference, data munging and ... . With expertise in geographic information systems (GIS), spatial analysis, and data visualization, I uncover meaningful insights that bridge the gap between human and physical geography</p>
+            <!--
+              <ul>
+                <li>I want to make a difference</li>
+                <li>I love solving problems in the real world</li>
+              </ul>
+            </p>
+            <p class="has-text-left has-text-weight-light">
+              Whether it's understanding patterns of urbanization, studying environmental changes, or analyzing social phenomena, I am committed to providing evidence-based solutions to complex spatial challenges. As a person I am solution and result oriented.
+            </p>-->
+            <a class="link-to" href="">
+              <span class="icon is-medium social-icons">
+                <i class="bi bi-envelope-at"></i>
+              </span>
+            </a>
+            <a href="">
+              <span class="icon is-medium social-icons">
+                <i class="bi bi-linkedin"></i>
+              </span>
+            </a>
+            <a href="">
+              <span class="icon is-medium social-icons">
+                    <i class="bi bi-github"></i>
+              </span>
+            </a>
+            </div>
+          </div>
+          <div style="bottom: 0px" class="column is-two-fifths">
+            <div style="position:relative; height: 60vh" id="myplot" class="box">
+              <p id="element" class="is-block coding-font"></p>
+                <canvas id="mychart"></canvas>
+            </div>
+          </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+            <script>
+
+              element = document.getElementById("myplot")
+              element.style.backgroundColor = "#323232"
+              var typed = new Typed('#element', {
+                strings: ['<p class="terminal-text">`Starting terminal`</p> ^300 <p class="terminal-text">`<span class="user-text">emr-dk@portfolio</span>:<span class="user-drive">~</span> $ ` ^500 curl datahub.org/penguins.json -o penguins.json</p> <p  class="terminal-text">`downloading data...`</p> ^1000 <p class="terminal-text"> `25%` ^600 `50%` ^400 `75%` ^200 `100%</p>` <p class="terminal-text">`<span class="user-text">emr-dk@portfolio</span>:<span class="user-drive">~</span> $ ` ^100 python3 do_analysis.py</p> ^100'],
+                typeSpeed: 50,
+                cursorChar: '',
+                onComplete: () =>  { wipeClean()}
+              });
+            </script>
+            <!-- ChartJS visualisation -->
+            <script>
+              
+              function wipeClean() {
+                document.getElementById("element").remove()
+                document.getElementsByClassName("typed-cursor")[0].remove()
+                element = document.getElementById("myplot")
+                element.style.backgroundColor = "#fff"
+                setTimeout(() => {createEmptyChart()}, 1000)
+              }
+              /* CHART */
+              function createEmptyChart() {
+                const ctx = document.getElementById('mychart');
+                const data = {
+                  datasets: [],
+                };
+                const config = {
+                  type: 'scatter',
+                  data: data,
+                  options: {
+                    scales: {
+                      x: {
+                        type: 'linear',
+                        position: 'bottom'
+                      }
+                    },
+                    transitions: { 
+                      show: {
+                        animations: {
+                          x: {
+                            from: 0,
+                            to: 1
+                          },
+                          y: {
+                            from: 0,
+                            to: 1
+                          }
+                        }
+                      },
+                      hide: {
+                        animations: {
+                          x: {
+                            from: 1,
+                            to: 0
+                          },
+                          y: {
+                            from: 1,
+                            to: 0
+                          }
+                        }
+                      }
+                  },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                      duration: 1000,
+                      easing: 'linear'
+                    }
+                  }
+                };
+
+                mychart = new Chart(ctx,config);
+                
+                setTimeout(() => {addData(mychart, "penguins", penguins)}, 500)
+              }
+
+              function addData(chart, labels, penguins) {
+                var pengData = {
+                  label: 'Penguins',
+                  backgroundColor: 'rgb(141,211,199)',
+                  data: penguins
+                }
+                
+                chart.data.datasets.push(pengData);
+                console.log(pengData)
+                chart.update();
+                setTimeout(() => {addDataStyle(chart, "penguins", penguins)}, 2000)
+              }
+              function addDataStyle(chart, label, data) {
+                data = []
+                backgroundcolor = []
+                for (let i = 0; i < chart.data.length; i++) {
+                    if (chart.data.datasets[0].data[i].species == 'Gentoo') {
+                      chart.data.datasets[0].data[i].backgroundColor = 'rgb(251,128,114)'
+                    } else if (chart.data.datasets[0].data[i].species == 'Adelie') {
+                      chart.data.datasets[0].data[i].backgroundColor = 'rgb(141,160,203)'
+                    } else {chart.data.datasets[0].data[i].backgroundColor = 'rgb(141,211,199)'}
+                    };
+                console.log(data)
+                chart.data.datasets[0].backgroundColor = "rgb(211, 191, 141)"
+                chart.update();
+                };      
+
+              function addDataStyleBck(chart, label, data) {
+                chart.data = []
+                chart.options.animation = {
+                  duration: 1000  
+                }
+                console.log(mychart.data, mychart.data.datasets)
+                adPeng = []
+                genPeng = []
+                chinPeng = []
+                for(var i = 0; i < data.length; i++){
+                  if (data[i].species == 'Gentoo') {
+                    genPeng.push(data[i])
+                  } else if (data[i].species == 'Adelie') {
+                    adPeng.push(data[i])
+                  } else {chinPeng.push(data[i])}
+                };
+                
+                var adData = {
+                  label: 'Adelie',
+                  backgroundColor: 'rgb(141,160,203)',
+                  data: adPeng
+                    };
+
+                var genData = {
+                  label: 'Gentoo',
+                  backgroundColor: 'rgb(251,128,114)',
+                  data: genPeng
+                }    
+
+                var chinData = {
+                  label: 'Chinstrap',
+                  backgroundColor: 'rgb(141,211,199)',
+                  data: chinPeng
+                }
+                chart.data.datasets.push(chinData, adData, genData);
+                
+                chart.update();
+                }              
+
+            </script>
+            <!--  SKAL BLIVE TIL D3 senere!!
+            <script type="module">
+                import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+                import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+                /* Animation */
+
+                var data = []
+                await d3.csv("static/data/aapl.csv", function(csvdata) {data.push(csvdata)});
+                line = d3.line().x(d => x(d.date)).y(d => y(d.close))
+
+
+                x = d3.scaleUtc()
+                .domain(d3.extent(data, d => d.date))
+                .range([margin.left, width - margin.right])
+                
+                y = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.upper)])
+                .range([height - margin.bottom, margin.top])
+
+                xAxis = (g, scale = x) => g
+                .attr("transform", `translate(0,${height - margin.bottom})`)
+                .call(d3.axisBottom(scale).ticks(width / 80).tickSizeOuter(0))
+                
+                yAxis = (g, scale = y) => g
+                .attr("transform", `translate(${margin.left},0)`)
+                .call(d3.axisLeft(scale).ticks(height / 40))
+                .call(g => g.select(".domain").remove())
+                
+                var height = 240;
+                
+                chart = {
+                  const svg = d3.create("svg")
+                      .attr("width", width)
+                      .attr("height", height)
+                      .attr("viewBox", [0, 0, width, height])
+                      .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+
+                  const zx = x.copy(); // x, but with a new domain.
+
+                  const line = d3.line()
+                      .x(d => zx(d.date))
+                      .y(d => y(d.close));
+
+                  const path = svg.append("path")
+                      .attr("fill", "none")
+                      .attr("stroke", "steelblue")
+                      .attr("stroke-width", 1.5)
+                      .attr("stroke-miterlimit", 1)
+                      .attr("d", line(data));
+
+                  const gx = svg.append("g")
+                      .call(xAxis, zx);
+
+                  const gy = svg.append("g")
+                      .call(yAxis, y);
+
+                  return Object.assign(svg.node(), {
+                    update(domain) {
+                      const t = svg.transition().duration(750);
+                      zx.domain(domain);
+                      gx.transition(t).call(xAxis, zx);
+                      path.transition(t).attr("d", line(data));
+                    }
+                  });
+                }
+                update = chart.update(timeframe)
+                const div = document.querySelector("#myplot");
+                div.append(chart);
+
+                /* IRIS dataset
+                var iris = []
+                await d3.csv("/static/data/iris.csv", function(csvdata) {console.log(csvdata); iris.push(csvdata)});
+                const plot = Plot.dot(iris, {x: "sepal_length", y: "sepal_width", stroke: "species"}).plot()
+                const div = document.querySelector("#myplot");
+                div.append(plot);
+                */ 
+                /*
+                var states = await d3.json("static/data/states.json", function(json) {
+                  return json
+                })
+
+                ages = states.columns.slice(1)
+                const width = 640;
+                const height = 480;
+                plot = Plot.plot({
+                  width,
+                  y: {tickFormat: "s"},
+                  color: {scheme: "spectral", domain: ages},
+                  marks: [
+                    Plot.barY(stateages, {
+                      x: "state",
+                      y: "population",
+                      fill: "age",
+                      sort: {x: "y", reverse: true}
+                    }),
+                    Plot.ruleY([0])
+                  ]
+                })
+                */
+
+
+                /*
+                var gistemp = []
+                  
+                var data = await d3.csv("static/data/temps.csv", function(d, i, columns) {
+                  console.log(d,i,columns)
+                  for (let i = 1; i < 13; ++i) {
+                    gistemp.push({
+                    date: new Date(Date.UTC(d.Year, i - 1, 1)),
+                    value: +d[columns[i]]
+                    });
+                  }
+                })
+                console.log(gistemp)
+                
+                const plot = Plot.plot({
+                  y: {
+                    grid: true,
+                    tickFormat: "+f",
+                    label: "↑ Surface temperature anomaly (°F)"
+                  },
+                  color: {
+                    scheme: "BuRd"
+                  },
+                  marks: [
+                    Plot.ruleY([0]),
+                    Plot.dot(gistemp, {x: "Date", y: "Anomaly", stroke: "Anomaly"})
+                  ]
+                })
+                const div = document.querySelector("#myplot");
+                div.append(plot);
+                */
+              </script>
+            -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-foot">
+    </div>
+  </section>
+  <section class="section skills-section is-medium has-text-centered pt-6 pb-3">
+    <h4 class="title is-4 has-text-weight-light">Some of the things I do 
+      <span onClick=funAndGames() class="icon is-medium refreshSkills">
+        <i class="icon-refresh-page-option">
+        </i>
+      </span>
+    </h4>
+    <div class="columns skill-icons">
+      <div class="column">
+        <span class="icon is-large skills">
+            <i class="devicon-pandas-original"></i>
+        </span>
+      </div>
+      <div class="column">
+        <span class="icon is-large skills">
+            <i class="devicon-git-plain"></i>
+        </span>
+      </div>
+      <div class="column">
+        <span class="icon is-large skills">
+            <i class="devicon-postgresql-plain"></i>
+        </span>
+      </div>
+      <div class="column">
+        <span class="icon is-large skills">
+            <i class="devicon-python-plain"></i>
+        </span>
+      </div>
+    </div>
+    <div class="columns has-text-centered skill-icons">
+      <div class="column">
+        <span class="icon is-large skills">
+            <i class="devicon-jupyter-plain"></i>
+        </span>
+      </div>
+      <div class="column">
+        <span class="icon is-large skills">
+            <i class="devicon-linux-plain"></i>
+        </span>
+      </div>
+      <div class="column">
+        <span class="icon is-large skills">
+            <i class="devicon-rstudio-plain"></i>
+        </span>
+      </div>
+      <div class="column">
+        <span class="icon is-large skills">
+            <i class="devicon-digitalocean-plain"></i>
+        </span>
+      </div>
+      <script>
+        var all_items = ['icon-bicycle',
+                          'icon-travel-map',
+                          'icon-exhibition',
+                          'icon-hiking',
+                          'icon-clarinet1',
+                          'icon-analytics',
+                          'icon-classification',
+                          'icon-deep-learning',
+                          'icon-family',
+                          'icon-inference',
+                          'icon-climate',
+                          'icon-monitor', 
+                          'devicon-jupyter-plain', 
+                          'devicon-python-plain', 
+                          'devicon-rstudio-plain',
+                          'devicon-postgresql-plain', 
+                          'devicon-git-plain', 
+                          'devicon-pandas-original',
+                          'devicon-linux-plain', 
+                          'devicon-digitalocean-plain', 
+                          'devicon-bash-plain',
+                          'devicon-docker-plain',
+                          'devicon-flask-original',
+                          'devicon-heroku-original',
+                          'devicon-msdos-line',
+                          'devicon-pytorch-original'];
+        var removedSymbols = [];
+        var usableSymbols = all_items.concat();
+        var skillTree = document.getElementsByClassName("skills");
+
+        function resetSymbols() {
+          all_items.sort(() => .5 - Math.random());
+          usableSymbols = all_items.concat();
+        }
+
+        function funAndGames() {
+          const symbols_in_use = new Array();
+          for (let i = 0; i < skillTree.length; i++) {
+            currClass = skillTree[i].children[0].className
+            if (symbols_in_use.includes(currClass)) {
+              skillTree[i].children[0].className = usableSymbols[currSkill + 1]
+              usableSymbols.splice(currSkill + 1,1)
+            }
+            else {
+              currSkill = i
+              skillTree[i].children[0].className = usableSymbols[currSkill]
+              usableSymbols.splice(currSkill,1)
+              console.log(usableSymbols.length, all_items.length)  
+            }
+            
+          if (usableSymbols.length < 9) {
+            resetSymbols()
+          }
+          
+        } 
+        }
+      </script>
+      
+    </div>
+  </section>
+</body>
+
+</html>

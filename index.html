@@ -345,7 +345,7 @@
                 chart.data.datasets.push(pengData);
                 console.log(pengData)
                 chart.update();
-                setTimeout(() => {addDataStyle(chart, "penguins", penguins)}, 2000)
+                setTimeout(() => {addDataStyleBck(chart, "penguins", penguins)}, 2000)
               }
               function addDataStyle(chart, label, data) {
                 data = []
@@ -552,7 +552,7 @@
         </i>
       </span>
     </h4>
-    <div class="columns skill-icons">
+    <div class="columns skill-icons is-mobile">
       <div class="column">
         <span class="icon is-large skills">
             <i class="devicon-pandas-original"></i>
@@ -574,7 +574,7 @@
         </span>
       </div>
     </div>
-    <div class="columns has-text-centered skill-icons">
+    <div class="columns has-text-centered skill-icons is-mobile">
       <div class="column">
         <span class="icon is-large skills">
             <i class="devicon-jupyter-plain"></i>

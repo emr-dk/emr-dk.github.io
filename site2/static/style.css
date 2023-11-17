@@ -1,0 +1,205 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    color: #333;
+  }
+
+  @font-face {
+    font-family: myFirstFont;
+    src: url("font/Budge-Regular.otf");
+  }
+  :root {
+    --carnation-pink: #ff99c8ff;
+    --lemon-chiffon: #fcf6bdff;
+    --nyanza: #d0f4deff;
+    --uranian-blue: #a9def9ff;
+    --mauve: #e4c1f9ff;
+  }
+
+  .social-icons:hover {
+    color: var(--uranian-blue);
+    border-color: var(--lemon-chiffon);
+    background-color: var(--lemon-chiffon);
+  }
+
+  .skills-special {
+    box-shadow: #44090D 1px 1px,
+                #44090D 0px 0px,
+                 #44090D 1px 1px,
+                #44090D 2px 2px,
+                #44090D 3px 3px,
+                #44090D 4px 4px,
+                #44090D 5px 5px,
+                #44090D 6px 6px,
+                #44090D 7px 7px,
+                #44090D 8px 8px,
+                #44090D 9px 9px;
+    border-radius: 4px;
+    border: 1px solid black;
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+    background-color: white;
+    color: black;
+  }
+
+
+  .social-icons {
+    border-radius: 50%; 
+    border-style: solid; 
+    border-width: 1px;
+    color: var(--lemon-chiffon);
+    background-color: var(--uranian-blue);
+    font-size: 1em;
+  }
+
+
+  .title {
+    font-family: myFirstFont;
+    /*font-family: Oleo Script;*/
+    color: #fff;
+    font-size: 10rem;
+    text-shadow: gray -1px 1px,
+                #44090D 1px 1px,
+                 #44090D 0px 0px,
+                 #44090D 1px 1px,
+                #44090D 2px 2px,
+                #44090D 3px 3px,
+                #44090D 4px 4px,
+                #44090D 5px 5px,
+                #44090D 6px 6px,
+                #44090D 7px 7px,
+                #44090D 8px 8px,
+                #44090D 9px 9px;
+  }
+
+  .title-rotate {
+    transform: rotate(-10deg);
+  }
+
+  .overskrift {
+    font-family: "Playpen Sans";
+    font-weight: 600;
+    color: black;
+  }
+
+  .sub-header {
+    font-family: "League Spartan";
+    font-weight: 600;
+    color: black;
+    text-shadow: none;
+    font-size: 4rem;
+    position: absolute;
+    top: -80px;
+  }
+
+  .about-rotate {
+    transform: rotate(-90deg);
+  }
+
+  .keywords {
+    min-height: 300px;
+  }
+
+  .pingpang {
+    background-image: url('./../static/new_font/dddynamite.svg');
+    background-size: cover;
+    height: 400px;
+  }
+
+  .title.keyword {
+    color: #fcbf49;
+    text-shadow: gray -1px 1px,
+                #44090D 1px 1px,
+                 #44090D 0px 0px,
+                 #44090D 1px 1px,
+                #44090D 2px 2px,
+                #44090D 3px 3px,
+                #44090D 4px 4px,
+                #44090D 5px 5px,
+                #44090D 6px 6px,
+                #44090D 7px 7px,
+                #44090D 8px 8px,
+                #44090D 9px 9px;
+  }
+
+  .info {
+    border: 2px black solid;
+    border-radius: 25px;
+    background-color: #dde9f2;
+    padding: 40px;
+  }
+
+  .hiya {
+    border: 2px black solid;
+    border-radius: 25px;
+    background-color: white;
+    padding: 60px;
+  }
+  
+  .ticker {
+  display: flex
+  }
+
+  .ticker__list {
+  display: flex;
+  animation: 40s infinite linear ticker 
+}
+
+.ticker:hover .ticker__list {
+  animation-play-state: paused;
+}
+
+  .ticker__item {
+  margin-right: 3rem;
+  }
+  @keyframes ticker {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.weirdo {
+  fill: #fcf3e0;
+  stroke: #333;
+  stroke-width: 2px;
+  /*stroke-dasharray: 2,2;*/
+  stroke-linejoin: round;
+  position: absolute;
+  top: 20%;
+  left: 75%;
+}
+
+.star {
+  fill: #f7ba84;
+  stroke: #333;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+  transform: rotate(-8deg);
+  position: absolute;
+  top: 10%;
+  z-index: 2;
+}
+
+.softie {
+  fill: #f4c8c6 ;
+  stroke: #333;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+  position: absolute;
+  left: 30%;
+  top: 70%;
+}
+
+.trueStar {
+  fill: #e5f2e4;
+  stroke: #333;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+  position: relative;
+  transform: rotate(-20deg);
+}
+
+h2 {
+  font-weight: 700;
+}

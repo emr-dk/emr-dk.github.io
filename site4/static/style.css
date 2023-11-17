@@ -1,0 +1,43 @@
+@font-face {
+    font-family: ibm;
+    src: url("./static/Web437_IBM_VGA_8x16.woff");
+}
+body {
+    background-color: black;
+    color: #aaaaaa;
+    font-family: ibm;
+    }
+
+.navbar {
+    background: hsla(328, 75%, 45%, 1);
+    background: linear-gradient(0deg, hsla(328, 75%, 45%, 1) 0%, hsla(269, 85%, 41%, 1) 100%);
+    background: -moz-linear-gradient(0deg, hsla(328, 75%, 45%, 1) 0%, hsla(269, 85%, 41%, 1) 100%);
+    background: -webkit-linear-gradient(0deg, hsla(328, 75%, 45%, 1) 0%, hsla(269, 85%, 41%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#C81D77", endColorstr="#6710C2", GradientType=1 );
+}
+.header {
+    color: white;
+}
+
+.text-middle .title {
+    color: lime;
+    color: white; 
+    text-shadow: 2px 2px 0 #555;
+}
+
+.text-middle .subtitle {
+    color: #F0F0F4
+
+}
+
+.marker {
+    color: lime;
+}
+
+.some {
+    color: #FF5555;
+}
+
+.other {
+    color: #00ffff;
+}

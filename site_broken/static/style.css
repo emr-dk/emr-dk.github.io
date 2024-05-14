@@ -1,0 +1,119 @@
+:root {
+    --main-color-sc1: #03045e;
+    --second-color-sc1: #0077b6 ;
+    --third-color-sc1: #00b4d8;
+    --fourth-color-sc1: #90e0ef;
+    --fifth-color-sc1: #caf0f8;
+    --sixth-color-sc1: #c8a772;
+    --background-color: rgba(0,0,0,0);
+  }
+
+  /* TERMINAL 
+
+  */ 
+  .coding-font {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 300;
+  }
+
+   
+  .terminal-text {
+    color: white !important;
+  }
+  
+  .typed-cursor{
+    color: white;
+    display: inline-block !important; 
+  }
+
+  /* ENTIRE DOCUMENT */
+
+  body {
+    font-family:'Inter Tight', sans-serif !important;
+  }
+
+  /* MAIN SECTION */
+
+  .main-section {
+    background-color: var(--second-color-sc1);
+    color: var(--main-color-sc1);
+  }
+
+  .social-icons:hover {
+    color: var(--main-color-sc1);
+    border-color: var(--main-color-sc1);
+    background-color: var(--third-color-sc1)
+  }
+
+  .social-icons {
+    border-radius: 50%; 
+    border-style: solid; 
+    border-width: 1px;
+    color: var(--third-color-sc1);
+    background-color: var(--background-color);
+    font-size: 1em;
+  }
+
+  /* SECOND SECTION */
+
+  .section {
+    background-color: var(--fifth-color-sc1);
+  }
+
+  .abouts {
+    min-height: 300px;
+  }
+
+  .box {
+    background-color: var(--fourth-color-sc1);
+    color: var(--second-color-sc1)
+  }
+
+   
+  .user-text {
+    display: inline-block;
+    color: #83D182
+  }
+
+  .user-drive {
+    display: inline-block;
+    color: #6D9CBE;
+  }
+
+
+  /* TEXT EFFECTS */
+  
+  .italic {
+    font-style: italic;
+    display: inline-flex
+  }
+  
+  strong {
+    color: var(--third-color-sc1);
+    font-weight: bold;
+  }
+
+ 
+
+  /* SKILLS AT BOTTOM */
+
+  .skill-icons {
+    font-size: 3em;
+    color: var(--main-color-sc1);
+  }
+
+  .refreshSkills {
+    left: -1em;
+    position: relative;
+    top: -1em;
+    color: var(--main-color-sc1);
+    transition: transform .7s ease-in-out;
+    font-size: 60%;
+    background-color: rgba(0,0,0,0);
+  }
+
+  .refreshSkills:hover{
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+  }

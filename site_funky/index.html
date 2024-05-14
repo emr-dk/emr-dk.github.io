@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>emil møller rasmussen | data & stuff</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="where i live">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="Emil Møller Rasmussen">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="./static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon-16x16.png">
+  <link rel="manifest" href="./static/site.webmanifest">
+
+  <!-- Bulma -->
+  <link rel="stylesheet" href="./static/bulma.min.css">
+
+  <!-- Devicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="./static/style.css">
+  <!-- custom font -->
+  <link rel="stylesheet" href="./static/myFont/customFont.css">
+
+  
+</head>
+<body>
+  <section class="section" id="rain-container">
+    <section class="section">
+      <a href="">
+      <div class="rib-cont">
+        <div class="is-ribbon">
+          <div class="indhold">
+            💕
+          </div>
+        </div>
+      </div>
+    </a>
+    <div class="columns is-centered">
+      <div class="column is-8">
+          <div class="funky has-text-centered">
+            <span class="funky-main ">Emil Møller</span>
+            <span class="funky-sub funky-sub-mobile">Rasmussen</span>
+          </div>
+      </div>
+    </div>
+  </section>
+  
+</body>
+
+<script>
+  let list_elements = ['devicon-pandas-original','devicon-git-plain','devicon-postgresql-plain','devicon-python-plain','devicon-jupyter-plain','devicon-linux-plain','devicon-rstudio-plain','icon-bicycle','icon-travel-map','icon-exhibition','icon-hiking','icon-clarinet1','icon-analytics','icon-classification','icon-deep-learning','icon-family','icon-inference','icon-climate','icon-monitor','devicon-pytorch-original','devicon-bash-plain','devicon-msdos-line','devicon-docker-plain','devicon-flask-original']
+
+  function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+  }
+  
+  var viewPortWidth = document.documentElement.clientWidth 
+  var element = document.querySelector('#rain-container')
+  let counter = 0;
+
+  var intervalId = window.setInterval(function(){
+    createRain();
+    if (counter >= 40) {
+      let list = document.getElementById("rain-container");
+      // list.removeChild(list.firstElementChild);
+    }
+  }, 1000);
+  function createRain() {
+    colors = ['#fcf3e0','#e5f2e4','#f7ba84','#a9def9ff','#fcf6bdff']
+    randomInt = getRndInteger(0,list_elements.length)
+    viewPortPlacement = getRndInteger(0,viewPortWidth)
+    color = getRndInteger(0,colors.length)
+    icon_name = list_elements[randomInt]
+    spanner = document.createElement('span')
+    spanner.className = "icon is-large skills-special rain"
+    spanner.style.setProperty('left',viewPortPlacement + 'px')
+    spanner.style.setProperty('background-color',colors[color])
+    icon = document.createElement('i')
+    icon.className = icon_name
+    spanner.appendChild(icon)
+    element.appendChild(spanner)
+    counter++
+  }
+
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+:root {
+    --main-color: #6B1020;
+    --main-text-color: #F94040;
+    --text-shadow: 555;
+    --second-text-color: #F0F0F4;
+    --navbar-color-start: hsla(328, 75%, 45%, 1);
+    --navbar-color-end:  hsla(269, 85%, 41%, 1);
+}
+
+html {
+
+    background-color: var(--main-color);
+    overflow-wrap: anywhere;
+}
+
+body {
+    color: var(--main-text-color);
+    font-family: "Sofia Sans Extra Condensed", sans-serif;
+    }
+
+.section {
+    height: 100vh;
+}
+
+
+.custom {
+    font-weight: 1000;
+    font-size: 180px;
+    line-height: 0.7;
+}

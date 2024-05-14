@@ -1,0 +1,109 @@
+<section class="section skills-section is-medium has-text-centered pt-6 pb-3">
+      <h4 class="title is-4 has-text-weight-light">Some of the things I do
+        <span onClick=funAndGames() class="icon is-medium refreshSkills">
+        <i class="icon-refresh-page-option">
+        </i>
+      </span>
+      </h4>
+      <div class="columns skill-icons is-mobile">
+        <div class="column">
+          <span class="icon is-large skills">
+            <i class="devicon-pandas-original"></i>
+        </span>
+        </div>
+        <div class="column">
+          <span class="icon is-large skills">
+            <i class="devicon-git-plain"></i>
+        </span>
+        </div>
+        <div class="column">
+          <span class="icon is-large skills">
+            <i class="devicon-postgresql-plain"></i>
+        </span>
+        </div>
+        <div class="column">
+          <span class="icon is-large skills">
+            <i class="devicon-python-plain"></i>
+        </span>
+        </div>
+      </div>
+      <div class="columns has-text-centered skill-icons is-mobile">
+        <div class="column">
+          <span class="icon is-large skills">
+            <i class="devicon-jupyter-plain"></i>
+        </span>
+        </div>
+        <div class="column">
+          <span class="icon is-large skills">
+            <i class="devicon-linux-plain"></i>
+        </span>
+        </div>
+        <div class="column">
+          <span class="icon is-large skills">
+            <i class="devicon-rstudio-plain"></i>
+        </span>
+        </div>
+        <div class="column">
+          <span class="icon is-large skills">
+            <i class="devicon-digitalocean-plain"></i>
+        </span>
+        </div>
+        <script>
+          var all_items = ['icon-bicycle',
+            'icon-travel-map',
+            'icon-exhibition',
+            'icon-hiking',
+            'icon-clarinet1',
+            'icon-analytics',
+            'icon-classification',
+            'icon-deep-learning',
+            'icon-family',
+            'icon-inference',
+            'icon-climate',
+            'icon-monitor',
+            'devicon-jupyter-plain',
+            'devicon-python-plain',
+            'devicon-rstudio-plain',
+            'devicon-postgresql-plain',
+            'devicon-git-plain',
+            'devicon-pandas-original',
+            'devicon-linux-plain',
+            'devicon-digitalocean-plain',
+            'devicon-bash-plain',
+            'devicon-docker-plain',
+            'devicon-flask-original',
+            'devicon-heroku-original',
+            'devicon-msdos-line',
+            'devicon-pytorch-original'
+          ];
+          var removedSymbols = [];
+          var usableSymbols = all_items.concat();
+          var skillTree = document.getElementsByClassName("skills");
+
+          function resetSymbols() {
+            all_items.sort(() => .5 - Math.random());
+            usableSymbols = all_items.concat();
+          }
+
+          function funAndGames() {
+            const symbols_in_use = new Array();
+            for (let i = 0; i < skillTree.length; i++) {
+              currClass = skillTree[i].children[0].className
+              if (symbols_in_use.includes(currClass)) {
+                skillTree[i].children[0].className = usableSymbols[currSkill + 1]
+                usableSymbols.splice(currSkill + 1, 1)
+              } else {
+                currSkill = i
+                skillTree[i].children[0].className = usableSymbols[currSkill]
+                usableSymbols.splice(currSkill, 1)
+              }
+
+              if (usableSymbols.length < 9) {
+                resetSymbols()
+              }
+
+            }
+          }
+        </script>
+
+      </div>

@@ -1,0 +1,32 @@
+:root {
+    --main-color: #d7d2cb;
+    --main-text-color: black;
+    --text-shadow: 555;
+    --second-text-color: #F0F0F4;
+    --navbar-color-start: hsla(328, 75%, 45%, 1);
+    --navbar-color-end:  hsla(269, 85%, 41%, 1);
+}
+
+html {
+    background-color: var(--main-color);
+}
+
+.section {
+    height: 100vh;
+}
+
+body {
+
+    color: var(--main-text-color);
+    font-family: "Schibsted Grotesk", sans-serif;
+    font-size: 4rem;
+}
+
+
+
+.custom {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 100;
+    font-size: 4.5rem;
+}

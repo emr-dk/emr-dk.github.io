@@ -1,0 +1,70 @@
+:root {
+    --text-shadow: 555;
+    --second-text-color: #F0F0F4;
+    --navbar-color-start: hsla(328, 75%, 45%, 1);
+    --navbar-color-end:  hsla(269, 85%, 41%, 1);
+}
+
+body {
+    background-color: #daedf4
+}
+
+.section {
+    height: 100vh;
+}
+
+body {
+    font-family: "VT323", monospace;
+    font-size: 1.5rem;
+}
+
+.focus
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.coding-font {
+    color: gray;
+}
+
+.terminal-text {
+
+}
+
+.box {
+    box-shadow: 10px 10px #add8e6;
+    border: 1px black solid;
+}
+
+.user-text {
+    color: lime
+}
+
+/* RIBBON */
+/* https://codepen.io/crayon-code/pen/vYXpmPB */
+
+.is-ribbon {
+  position: absolute;
+  right: var(--right, 10px);
+  top: var(--top, -3px);
+  filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.5));
+}
+
+.indhold {
+    color: white;
+  font-size: 1.25rem;
+  text-align: center;
+  font-weight: 400;
+  background: var(--color, #b597f6) linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
+  padding: 8px 2px 4px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
+  width: var(--width, 32px);
+  min-height: var(--height, 36px);
+  transition: clip-path 1s, padding 1s, background 1s;
+}

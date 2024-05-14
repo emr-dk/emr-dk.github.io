@@ -1,0 +1,60 @@
+:root {
+    --main-color: black;
+    --main-text-color: #aaaaaa;
+    --text-shadow: 555;
+    --second-text-color: #F0F0F4;
+    --navbar-color-start: hsla(328, 75%, 45%, 1);
+    --navbar-color-end:  hsla(269, 85%, 41%, 1);
+}
+
+@font-face {
+    font-family: ibm;
+    src: url("./Web437_IBM_VGA_8x16.woff");
+}
+body {
+    background-color: var(--main-color);
+    color: var(--main-text-color);
+    font-family: ibm;
+    }
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+}
+
+.navbar {
+    background: var(--navbar-color-start);
+    background: linear-gradient(0deg, var(--navbar-color-start) 0%, var(--navbar-color-end) 100%);
+    background: -moz-linear-gradient(0deg, var(--navbar-color-start) 0%, var(--navbar-color-end) 100%);
+    background: -webkit-linear-gradient(0deg, var(--navbar-color-start) 0%, var(--navbar-color-end) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#C81D77", endColorstr="#6710C2", GradientType=1 );
+}
+
+.title {
+    color: white; 
+    text-shadow: 2px 2px 0 #555;
+}
+
+.marker {
+    color: lime;
+}
+
+.some {
+    color: #FF5555;
+}
+
+.other {
+    color: #00ffff;
+}

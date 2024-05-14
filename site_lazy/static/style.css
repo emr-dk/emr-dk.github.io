@@ -1,0 +1,30 @@
+:root {
+    --main-color: black;
+    --main-text-color: #E3F988;
+    --text-shadow: 555;
+    --second-text-color: #F0F0F4;
+    --navbar-color-start: hsla(328, 75%, 45%, 1);
+    --navbar-color-end:  hsla(269, 85%, 41%, 1);
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url("font/netpretasmall.wof");
+  }
+
+.section {
+    background-image: url("img/palmy2.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+body {
+    background-color: var(--main-color);
+    color: var(--main-text-color);
+    font-family: "myFirstFont", sans-serif;
+}

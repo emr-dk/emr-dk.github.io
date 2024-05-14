@@ -1,0 +1,12 @@
+body {
+    background-color: #faf7f0;
+    font-family: 'Inter Tight', sans-serif;
+}
+
+.section {
+    height: 100vh;
+}
+
+
+.image { transition: transform 0.5s; }
+.image:hover { transform: scale(0.90); }

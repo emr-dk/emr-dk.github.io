@@ -29,3 +29,7 @@ body {
     min-height: var(--height, 36px);
     transition: clip-path 1s, padding 1s, background 1s;
   }
+
+  img {
+    clip-path: circle();
+  }

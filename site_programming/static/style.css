@@ -6,14 +6,22 @@
     --navbar-color-start: hsla(328, 75%, 45%, 1);
     --navbar-color-end:  hsla(269, 85%, 41%, 1);
 }
+
+html {
+    overflow: hidden;
+
+}
 .section {
     height: 100vh;
+    z-index: 2;
 }
 
 
 .title {
     font-size: 6rem;
-    color: var(--main-text-color)
+    color: var(--main-text-color);
+    z-index: 10;
+    position: relative;
 }
 
 body {
@@ -38,10 +46,11 @@ body {
     right: var(--right, 10px);
     top: var(--top, -3px);
     filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.5));
+    z-index: 2;
   }
   
   .indhold {
-      color: white;
+    color: white;
     font-size: 1.25rem;
     text-align: center;
     font-weight: 400;

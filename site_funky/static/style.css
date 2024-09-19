@@ -70,12 +70,14 @@ body {
   .funky-main {
     z-index: 3;
     font-size: 6rem;
+    position: relative;
   }
 
   .funky-sub { 
     z-index: 3;
     font-size: 10rem;
     line-height: 0.3;
+    position: relative;
   }
 
   @media only screen and (max-width: 811px) {

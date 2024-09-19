@@ -9,6 +9,7 @@
 
 html {
     background-color: var(--main-color);
+    overflow: hidden;
 }
 
 .section {

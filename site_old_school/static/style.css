@@ -7,6 +7,10 @@
     --navbar-color-end:  hsla(269, 85%, 41%, 1);
 }
 
+html {
+    overflow: hidden;
+}
+
 @font-face {
     font-family: ibm;
     src: url("./Web437_IBM_VGA_8x16.woff");

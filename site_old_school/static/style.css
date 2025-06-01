@@ -71,6 +71,10 @@ body::after {
     
 z-index: 999;
   }
+
+body {
+    height: 100vh;
+}
   
 .indhold {
 color: white;

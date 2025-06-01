@@ -1,4 +1,29 @@
 
+body {
+  height: 100%;
+  background: #15141A;
+}
+
+h1 {
+  color: #fff;
+}
+
+h2 {
+  color: #5B5B66;
+}
+
+container {
+  margin: auto;
+}
+
+.roboto-700 {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-variation-settings:
+    "wdth" 100;
+}
+
 .is-ribbon {
   position: absolute;
   right: var(--right, 10px);
@@ -18,7 +43,7 @@
   min-height: var(--height, 36px);
   transition: clip-path 1s, padding 1s, background 1s;
 }
-
+/*
 .gradient-text {
   margin-inline: auto;
   padding-block: 0.2em;
@@ -30,4 +55,14 @@
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent; 
   -moz-text-fill-color: transparent;
+}*/
+
+
+.fredoka-text {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }

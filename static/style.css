@@ -18,3 +18,16 @@
   min-height: var(--height, 36px);
   transition: clip-path 1s, padding 1s, background 1s;
 }
+
+.gradient-text {
+  margin-inline: auto;
+  padding-block: 0.2em;
+  max-inline-size: 15ch;
+  background-color: #1e293b;
+  background-image: linear-gradient(60deg,#2563eb,#ff5acd,#fbda61,#ff5acd,#2563eb);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}

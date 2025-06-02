@@ -10,11 +10,11 @@
     </head>
     <body class="roboto-700">
         <section class="section">
-          <div id="changingColors" class="container">
-            <div class="columns">
-              <div class="column is-6">
+          <div  class="container">
+            <div class="columns is-desktop">
+              <div class="column is-half-desktop">
                 <h1 class="is-size-1 has-text-weight-bold">Hej, jeg hedder Emil 👋</h1>
-                <h2 class="is-bold is-size-2 has-text-weight-bold">
+                <h2 class="is-bold is-size-2 has-text-weight-bold" id="changingColors">
                   Det her er en af <span class="is-size-6">(flere)</span> små sider jeg har lavet. De har ikke rigtig noget formål. Klik dig igennem ved at trykke på 👉 oppe i højre hjørne.
                 </h2>
               </div>
@@ -35,7 +35,89 @@
         </section>
     </body>
     <script>
-      
+      let intervalId = null;
+        let changedLetters = new Set();
+        let letterElements = [];
+        
+        // Array of vibrant colors to choose from
+        const colors = [
+            '#b4fafa', '#ff787d', '#efb1ed', '#ffe484', '#ffaa79',
+            '#c7e9f1', '#ffb3ba', '#bae1ff', '#ffffba', '#ffdfba',
+            '#a8e6cf', '#dcedc8', '#f8bbd9', '#e6b3ff', '#ffb3d9',
+            '#c5d9f1', '#ffc9de', '#b3d9ff', '#fff2cc', '#d4f1d4'
+        ];
+        
+        function wrapLettersInSpans() {
+            const container = document.getElementById('changingColors');
+            const text = container.textContent;
+            container.innerHTML = '';
+            letterElements = [];
+            
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                const span = document.createElement('thing');
+                span.textContent = char;
+                span.className = 'letter';
+                span.dataset.index = i;
+                
+                // Skip spaces and punctuation for color changes
+                if (char.match(/[a-zA-Z]/)) {
+                    letterElements.push(span);
+                }
+                
+                container.appendChild(span);
+            }
+        }
+        
+        function getRandomColor() {
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function slowlyClearLetterColors() {
+          const allLetters = document.querySelectorAll('.letter');
+          const styledLetters = Array.from(allLetters).filter(letter => letter.style.color);
+            const randomIndex = Math.floor(Math.random() * (styledLetters.length - 4));
+            styledLetters[randomIndex].style.color = ''; // Clear the color of the randomly selected styled letter
+          }
+        
+        function changeRandomLetterColor() {
+            // Filter out letters that haven't been changed yet
+            const unchangedLetters = letterElements.filter(letter => 
+                !changedLetters.has(parseInt(letter.dataset.index))
+            );
+            
+            if (unchangedLetters.length === 0) {
+                // All letters colored - stop the animation
+                clearInterval(intervalId);
+                return;
+            }
+            
+            // Pick a random unchanged letter
+            const randomIndex = Math.floor(Math.random() * unchangedLetters.length);
+            const selectedLetter = unchangedLetters[randomIndex];
+            
+            // Change its color
+            selectedLetter.style.color = getRandomColor();
+            
+            // Mark it as changed
+            changedLetters.add(parseInt(selectedLetter.dataset.index));
+            letters = document.querySelectorAll('.letter');
+            const styledLetters = Array.from(letters).filter(letter => letter.style.color);
+            if (styledLetters.length > 15) {
+              slowlyClearLetterColors();
+            };
+        }
+
+        
+        
+        // Initialize and start animation on page load
+        window.addEventListener('load', function() {
+            wrapLettersInSpans();
+            
+            // Start changing colors immediately, then every 10 seconds
+            changeRandomLetterColor();
+            intervalId = setInterval(changeRandomLetterColor, 1000);
+        });
     </script>
 </html>
 <!-- Thanks Bellergy and adege from Pixabay -->

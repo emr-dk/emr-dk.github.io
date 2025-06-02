@@ -8,8 +8,14 @@ h1 {
   color: #fff;
 }
 
+.letter {
+  -webkit-transition: color .8s ease-in-out;
+  transition: color .8s ease-in-out;
+
+}
+
 h2 {
-  color: #5B5B66;
+  color: #a2a2a2;
 }
 
 container {

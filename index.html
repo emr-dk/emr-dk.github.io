@@ -36,6 +36,7 @@
     </body>
     <script>
       let intervalId = null;
+      let slowClear = null;
         let changedLetters = new Set();
         let letterElements = [];
         
@@ -79,6 +80,13 @@
             const randomIndex = Math.floor(Math.random() * (styledLetters.length - 4));
             styledLetters[randomIndex].style.color = ''; // Clear the color of the randomly selected styled letter
           }
+
+        function slowlyClearLetterColorsEnd() {
+          const allLetters = document.querySelectorAll('.letter');
+          const styledLetters = Array.from(allLetters).filter(letter => letter.style.color);
+          const randomIndex = Math.floor(Math.random() * (styledLetters.length - 4));
+            styledLetters[randomIndex].style.color = ''; // Clear the color of the randomly selected styled letter
+          }
         
         function changeRandomLetterColor() {
             // Filter out letters that haven't been changed yet
@@ -88,7 +96,12 @@
             
             if (unchangedLetters.length === 0) {
                 // All letters colored - stop the animation
-                clearInterval(intervalId);
+                const allLetters = document.querySelectorAll('.letter');
+                const styledLetters = Array.from(allLetters).filter(letter => letter.style.color);
+                styledLetters.forEach(letter => {
+                  letter.style.color = '';
+                  setTimeout(() => {}, 250);
+                });
                 return;
             }
             
@@ -104,7 +117,7 @@
             letters = document.querySelectorAll('.letter');
             const styledLetters = Array.from(letters).filter(letter => letter.style.color);
             if (styledLetters.length > 15) {
-              slowlyClearLetterColors();
+              slowClear = setInterval(slowlyClearLetterColors(),250);
             };
         }
 
@@ -116,7 +129,7 @@
             
             // Start changing colors immediately, then every 10 seconds
             changeRandomLetterColor();
-            intervalId = setInterval(changeRandomLetterColor, 1000);
+            intervalId = setInterval(changeRandomLetterColor, 250);
         });
     </script>
 </html>

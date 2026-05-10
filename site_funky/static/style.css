@@ -2,6 +2,7 @@ body {
     font-family: myFirstFont;
     font-weight: 400;
     color: #333;
+    margin: 0;
   }
 
   @font-face {
@@ -30,8 +31,6 @@ body {
 
   .skills-special {
     box-shadow: #44090D 1px 1px,
-                #44090D 0px 0px,
-                 #44090D 1px 1px,
                 #44090D 2px 2px,
                 #44090D 3px 3px,
                 #44090D 4px 4px,
@@ -42,56 +41,58 @@ body {
                 #44090D 9px 9px;
     border-radius: 4px;
     border: 1px solid black;
-    width: 5rem;
-    height: 5rem;
-    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
     background-color: white;
     color: black;
   }
 
-  .funky {
+  .funky-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     z-index: 3;
-    font-family: myFirstFont;
-    color: #fff;
-    text-shadow: gray -1px 1px,
-                #44090D 1px 1px,
-                 #44090D 0px 0px,
-                 #44090D 1px 1px,
-                #44090D 2px 2px,
-                #44090D 3px 3px,
-                #44090D 4px 4px,
-                #44090D 5px 5px,
-                #44090D 6px 6px,
-                #44090D 7px 7px,
-                #44090D 8px 8px,
-                #44090D 9px 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25em;
+    white-space: nowrap;
   }
 
-  .funky-main {
-    z-index: 3;
-    font-size: 6rem;
-    position: relative;
-  }
-
-  .funky-sub { 
-    z-index: 3;
-    font-size: 10rem;
-    line-height: 0.3;
-    position: relative;
-  }
-
-  @media only screen and (max-width: 811px) {
-  .funky-sub {
-    font-size: 6rem;
-  }
-}
-
-  @media only screen and (max-width: 811px) {
   .funky-main,
   .funky-sub {
-    font-size: 4rem;
+    font-family: myFirstFont;
+    color: #fff;
+    display: block;
+    text-shadow:
+      gray -1px 1px,
+      #44090D 1px 1px,
+      #44090D 2px 2px,
+      #44090D 3px 3px,
+      #44090D 4px 4px,
+      #44090D 5px 5px,
+      #44090D 6px 6px,
+      #44090D 7px 7px,
+      #44090D 8px 8px,
+      #44090D 9px 9px;
   }
-}
+
+  /* "Emil Møller" — smaller, reads as a label above the surname */
+  .funky-main {
+    font-size: clamp(2rem, 6vw, 5.5rem);
+  }
+
+  /* "Rasmussen" — dominant, fills the eye */
+  .funky-sub {
+    font-size: clamp(3.5rem, 11vw, 10rem);
+    line-height: 1;
+  }
 
   .title {
     z-index: 3;
@@ -165,3 +166,43 @@ body {
   min-height: var(--height, 36px);
   transition: clip-path 1s, padding 1s, background 1s;
 }
+/* ── Page dots ── */
+.page-dots {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 100;
+}
+
+.pd-dot {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 100px;
+  background: rgba(0, 0, 0, 0.18);
+  transition: background 0.2s, width 0.25s;
+  flex-shrink: 0;
+}
+
+.pd-dot:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.pd-dot[aria-current="page"] {
+  width: 20px;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.pd-arrow {
+  color: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0 3px;
+  transition: color 0.2s;
+}
+.pd-arrow:hover { color: rgba(0, 0, 0, 0.7); }

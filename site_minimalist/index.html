@@ -1,99 +1,49 @@
 <!DOCTYPE html>
-<html>
-  <!-- https://minimalistic.webflow.io/?utm_medium=affiliate&ps_partner_key=OTA0NDY5&ps_xid=xAaIS83rjJ9vXO&gsxid=xAaIS83rjJ9vXO&gspk=OTA0NDY5 -->
+<html lang="en">
 <head>
   <title>emil møller rasmussen | data & stuff</title>
   <meta charset="UTF-8">
   <meta name="description" content="where i live">
-  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
   <meta name="author" content="Emil Møller Rasmussen">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="./static/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./static/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon-16x16.png">
-  <link rel="manifest" href="../static/site.webmanifest">
-
-  <!-- Bulma -->
-  <link rel="stylesheet" href="/static/bulma.min.css">
-
-  <!-- Google fonts -->
+  <link rel="manifest" href="/static/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-  <!-- Main CSS -->
   <link rel="stylesheet" href="./static/style.css">
 </head>
 <body>
-  <section class="section pt-0">
-      <a href="/site_design/">
-      <div class="rib-cont">
-        <div class="is-ribbon">
-          <div class="indhold">
-            💕
-          </div>
-        </div>
-      </div>
-    </a>
-      <div class="">
-        <div class="title is-size-3 has-text-weight-semibold">
-          Emil Møller
-        </div>
-        <div class="subtitle is-size-5">
-          Rasmussen
-        </div>
-      </div>
-        <div class="columns is-centered is-vcentered">
-            <div class="column is-3">
-              <figure class="image is-256x256">
-                <img style="object-fit: contain" class="is-rounded" src="static/img/berlin.jpg" />
-              </figure>
-            </div>
-            <div class="column is-3">
-              <figure class="image is-256x256">
-                <img style="object-fit: contain" class="is-rounded" src="static/img/groenland.jpg" />
-              </figure>
-            </div>
-            <div class="column is-3">
-              <figure class="image is-256x256">
-                <img style="object-fit: contain" class="is-rounded" src="static/img/yosemite.jpg" />
-              </figure>
-            </div>
-        </div>
-        <div class="columns is-centered is-vcentered">
-          <div class="column is-3">
-            <figure class="image is-256x256">
-              <img style="object-fit: contain" class="is-rounded" src="static/img/delo.jpg" />
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image is-256x256">
-              <img style="object-fit: contain" class="is-rounded" src="static/img/iceland.jpg" />
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image is-256x256">
-              <img style="object-fit: contain" class="is-rounded" src="static/img/greece.jpg" />
-            </figure>
-          </div>
-        </div>
-        <div class="columns is-centered is-vcentered">
-          <div class="column is-3">
-            <figure class="image is-256x256">
-              <img style="object-fit: contain" class="is-rounded" src="static/img/edin.jpg" />
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image is-256x256">
-              <img style="object-fit: contain" class="is-rounded" src="static/img/seyc.jpg" />
-            </figure>
-          </div>
-          <div class="column is-3">
-            <figure class="image is-256x256">
-              <img style="object-fit: contain" class="is-rounded" src="static/img/madeira.jpg " />
-            </figure>
-          </div>
-        </div>
-  </section>
+  <nav class="page-dots" aria-label="Sidenavigation">
+    <a href="/site_old_school/"  class="pd-arrow" aria-label="Forrige side">&lt;</a>
+    <a href="/site_colorful/"    class="pd-dot" aria-label="Side 1"></a>
+    <a href="/site_funky/"       class="pd-dot" aria-label="Side 2"></a>
+    <a href="/site_terminal/"    class="pd-dot" aria-label="Side 3"></a>
+    <a href="/site_programming/" class="pd-dot" aria-label="Side 4"></a>
+    <a href="/site_huge/"        class="pd-dot" aria-label="Side 5"></a>
+    <a href="/site_old_school/"  class="pd-dot" aria-label="Side 6"></a>
+    <a href="/site_minimalist/"  class="pd-dot" aria-current="page" aria-label="Side 7"></a>
+    <a href="/site_design/"      class="pd-dot" aria-label="Side 8"></a>
+    <a href="/site_design/"      class="pd-arrow" aria-label="Næste side">&gt;</a>
+  </nav>
+
+  <div class="nameblock">
+    <p class="name">Emil Møller Rasmussen</p>
+    <p class="subtitle">data · geografi · klarinet</p>
+  </div>
+
+  <div class="photo-grid">
+    <img src="static/img/berlin.jpg"    alt="Berlin"    loading="lazy">
+    <img src="static/img/groenland.jpg" alt="Grønland"  loading="lazy">
+    <img src="static/img/yosemite.jpg"  alt="Yosemite"  loading="lazy">
+    <img src="static/img/delo.jpg"      alt="Delos"     loading="lazy">
+    <img src="static/img/iceland.jpg"   alt="Iceland"   loading="lazy">
+    <img src="static/img/greece.jpg"    alt="Greece"    loading="lazy">
+    <img src="static/img/edin.jpg"      alt="Edinburgh" loading="lazy">
+    <img src="static/img/seyc.jpg"      alt="Seychelles" loading="lazy">
+    <img src="static/img/madeira.jpg"   alt="Madeira"   loading="lazy">
+  </div>
 </body>
-</html> 
+</html>

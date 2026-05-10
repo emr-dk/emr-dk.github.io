@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="da">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Emil Møller Rasmussen | farver</title>
+        <link rel="stylesheet" href="./static/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="page-dots" aria-label="Sidenavigation">
+          <a href="/site_design/"      class="pd-arrow" aria-label="Forrige side">&lt;</a>
+          <a href="/site_colorful/"    class="pd-dot" aria-current="page" aria-label="Side 1"></a>
+          <a href="/site_funky/"       class="pd-dot" aria-label="Side 2"></a>
+          <a href="/site_terminal/"    class="pd-dot" aria-label="Side 3"></a>
+          <a href="/site_programming/" class="pd-dot" aria-label="Side 4"></a>
+          <a href="/site_huge/"        class="pd-dot" aria-label="Side 5"></a>
+          <a href="/site_old_school/"  class="pd-dot" aria-label="Side 6"></a>
+          <a href="/site_minimalist/"  class="pd-dot" aria-label="Side 7"></a>
+          <a href="/site_design/"      class="pd-dot" aria-label="Side 8"></a>
+          <a href="/site_funky/"       class="pd-arrow" aria-label="Næste side">&gt;</a>
+        </nav>
+
+        <div class="card">
+            <h1>Hej, jeg hedder Emil 👋</h1>
+            <p id="changingColors">Det her er en af <small>(flere)</small> små sider jeg har lavet. Klik dig igennem ved at trykke på 👉 oppe i højre hjørne.</p>
+        </div>
+
+        <script>
+          let letterElements = [];
+
+          const colors = [
+              '#b4fafa', '#ff787d', '#efb1ed', '#ffe484', '#ffaa79',
+              '#c7e9f1', '#ffb3ba', '#bae1ff', '#ffffba', '#ffdfba',
+              '#a8e6cf', '#dcedc8', '#f8bbd9', '#e6b3ff', '#ffb3d9',
+              '#c5d9f1', '#ffc9de', '#b3d9ff', '#fff2cc', '#d4f1d4',
+          ];
+
+          function wrapLettersInSpans() {
+              const container = document.getElementById('changingColors');
+              const text = container.textContent;
+              container.innerHTML = '';
+              letterElements = [];
+
+              for (let i = 0; i < text.length; i++) {
+                  const char = text[i];
+                  const span = document.createElement('span');
+                  span.textContent = char;
+                  span.className = 'letter';
+
+                  if (char.match(/[a-zA-ZæøåÆØÅ]/)) {
+                      letterElements.push(span);
+                  }
+
+                  container.appendChild(span);
+              }
+          }
+
+          function getRandomColor() {
+              return colors[Math.floor(Math.random() * colors.length)];
+          }
+
+          function lightUpLetter() {
+              if (!letterElements.length) return;
+              const letter = letterElements[Math.floor(Math.random() * letterElements.length)];
+              letter.style.color = getRandomColor();
+          }
+
+          function dimLetter() {
+              const lit = letterElements.filter(l => l.style.color);
+              if (!lit.length) return;
+              lit[Math.floor(Math.random() * lit.length)].style.color = '';
+          }
+
+          window.addEventListener('load', function() {
+              wrapLettersInSpans();
+              setInterval(lightUpLetter, 120);
+              setInterval(dimLetter, 200);
+          });
+        </script>
+    </body>
+</html>

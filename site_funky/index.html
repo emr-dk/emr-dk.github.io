@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>emil møller rasmussen | data & stuff</title>
   <meta charset="UTF-8">
@@ -12,77 +12,80 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon-16x16.png">
   <link rel="manifest" href="./static/site.webmanifest">
 
-  <!-- Bulma -->
-  <link rel="stylesheet" href="/static/bulma.min.css">
-
   <!-- Devicons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-  
+
   <!-- Main CSS -->
   <link rel="stylesheet" href="./static/style.css">
-  <!-- custom font -->
-  <link rel="stylesheet" href="/static/myFont/customFont.css">
-
-  
 </head>
 <body>
   <section class="section" id="rain-container">
-    <a href="/site_terminal/">
-      <div class="rib-cont">
-        <div class="is-ribbon">
-          <div class="indhold">
-            💕
-          </div>
-        </div>
-      </div>
-    </a>
-    <div class="columns is-centered">
-      <div class="column is-8">
-          <div class="funky has-text-centered">
-            <span class="funky-main ">Emil Møller</span>
-            <span class="funky-sub funky-sub-mobile">Rasmussen</span>
-          </div>
-      </div>
+    <nav class="page-dots" aria-label="Sidenavigation">
+      <a href="/site_colorful/"    class="pd-arrow" aria-label="Forrige side">&lt;</a>
+      <a href="/site_colorful/"    class="pd-dot" aria-label="Side 1"></a>
+      <a href="/site_funky/"       class="pd-dot" aria-current="page" aria-label="Side 2"></a>
+      <a href="/site_terminal/"    class="pd-dot" aria-label="Side 3"></a>
+      <a href="/site_programming/" class="pd-dot" aria-label="Side 4"></a>
+      <a href="/site_huge/"        class="pd-dot" aria-label="Side 5"></a>
+      <a href="/site_old_school/"  class="pd-dot" aria-label="Side 6"></a>
+      <a href="/site_minimalist/"  class="pd-dot" aria-label="Side 7"></a>
+      <a href="/site_design/"      class="pd-dot" aria-label="Side 8"></a>
+      <a href="/site_terminal/"    class="pd-arrow" aria-label="Næste side">&gt;</a>
+    </nav>
+
+    <div class="funky-name">
+      <span class="funky-main">Emil Møller</span>
+      <span class="funky-sub">Rasmussen</span>
     </div>
   </section>
-  
-</body>
 
-<script>
-  let list_elements = ['devicon-pandas-original','devicon-git-plain','devicon-postgresql-plain','devicon-python-plain','devicon-jupyter-plain','devicon-linux-plain','devicon-rstudio-plain','icon-bicycle','icon-travel-map','icon-exhibition','icon-hiking','icon-clarinet1','icon-analytics','icon-classification','icon-deep-learning','icon-family','icon-inference','icon-climate','icon-monitor','devicon-pytorch-original','devicon-bash-plain','devicon-msdos-line','devicon-docker-plain','devicon-flask-original']
+  <script>
+    // Only devicon classes — custom icon-* classes have no font loaded
+    const list_elements = [
+      'devicon-pandas-original',
+      'devicon-git-plain',
+      'devicon-postgresql-plain',
+      'devicon-python-plain',
+      'devicon-jupyter-plain',
+      'devicon-linux-plain',
+      'devicon-rstudio-plain',
+      'devicon-pytorch-original',
+      'devicon-bash-plain',
+      'devicon-docker-plain',
+      'devicon-flask-original',
+      'devicon-go-plain',
+    ];
 
-  function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min) ) + min;
-  }
-  
-  var viewPortWidth = document.documentElement.clientWidth 
-  var element = document.querySelector('#rain-container')
-  let counter = 0;
+    const colors = ['#fcf3e0', '#e5f2e4', '#f7ba84', '#a9def9', '#fcf6bd'];
+    const element = document.querySelector('#rain-container');
 
-  var intervalId = window.setInterval(function(){
-    createRain();
-    if (counter >= 40) {
-      let list = document.getElementById("rain-container");
-      // list.removeChild(list.firstElementChild);
+    function getRndInteger(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
     }
-  }, 1000);
-  function createRain() {
-    colors = ['#fcf3e0','#e5f2e4','#f7ba84','#a9def9ff','#fcf6bdff']
-    randomInt = getRndInteger(0,list_elements.length)
-    viewPortPlacement = getRndInteger(0,viewPortWidth)
-    color = getRndInteger(0,colors.length)
-    icon_name = list_elements[randomInt]
-    spanner = document.createElement('span')
-    spanner.className = "icon is-large skills-special rain"
-    spanner.style.setProperty('left',viewPortPlacement + 'px')
-    spanner.style.setProperty('background-color',colors[color])
-    icon = document.createElement('i')
-    icon.className = icon_name
-    spanner.appendChild(icon)
-    element.appendChild(spanner)
-    counter++
-  }
 
+    function createRain() {
+      // Always read current width so it stays correct after resize
+      const viewPortWidth = document.documentElement.clientWidth;
+      const icon_name = list_elements[getRndInteger(0, list_elements.length)];
+      const color = colors[getRndInteger(0, colors.length)];
+      const left = getRndInteger(0, viewPortWidth);
 
-</script>
+      const spanner = document.createElement('span');
+      spanner.className = 'icon is-large skills-special rain';
+      spanner.style.left = left + 'px';
+      spanner.style.backgroundColor = color;
+
+      const icon = document.createElement('i');
+      icon.className = icon_name;
+      spanner.appendChild(icon);
+      element.appendChild(spanner);
+
+      // Remove from DOM once the fall animation finishes — no accumulation
+      spanner.addEventListener('animationend', () => spanner.remove());
+    }
+
+    createRain();
+    window.setInterval(createRain, 1000);
+  </script>
+</body>
 </html>

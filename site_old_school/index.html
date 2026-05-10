@@ -1,60 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>emil møller rasmussen | data & stuff</title>
   <meta charset="UTF-8">
   <meta name="description" content="where i live">
-  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
   <meta name="author" content="Emil Møller Rasmussen">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="./static/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./static/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon-16x16.png">
   <link rel="manifest" href="./static/site.webmanifest">
-
-  <!-- Bulma -->
-  <link rel="stylesheet" href="/static/bulma.min.css">
-  <!-- Main CSS -->
   <link rel="stylesheet" href="./static/style.css">
 </head>
 <body>
-    <nav class="navbar">
-      <div class="container">
-          <h1 class="title is-size-3 header">
-          </h1>
-      </div>
-    </nav>
-    <section class="main-section section is-medium">
-        <a href="/site_minimalist/">
-          <div class="is-ribbon">
-              <div class="indhold">
-                💕
-              </div>
-            </div>  
-          </a>
-          <div class="container has-content-centeredt">
-            <div class="columns is-centered">
-              <div class="column is-6 is-size-6 has-text-weight-light">
-                <div class="block">
-                  <h1 class="title is-size-2 has-text-weight-semibold">
-                  Emil Møller Rasmussen
-                  </h1>
-                  <h4 class="subtitle is-size-4 has-text-weight-medium">
-                  Data Engineer
-                  </h2>
-                  <div class="block">
-                    <p class="is-size-6 has-text-weight-light">I like making things</p>
-                  </div>
-                  <div class="block">
-                    Early in my student life I began exploring the world of geospatial data processing, sparking a deep interest in the field of Geographic Information Systems (GIS) and coding.
-                  </div>
-                  <div class="block">
-                  </div>
-                  <div class="block">
-                    When I’m not at the computer, I’m usually out discovering the world, reading, hanging out with my family, or playing the clarinet.
-                  </div>
-              </div>
-            </div
-          </div>
-  </section>
+  <nav class="page-dots" aria-label="Sidenavigation">
+    <a href="/site_huge/"        class="pd-arrow" aria-label="Forrige side">&lt;</a>
+    <a href="/site_colorful/"    class="pd-dot" aria-label="Side 1"></a>
+    <a href="/site_funky/"       class="pd-dot" aria-label="Side 2"></a>
+    <a href="/site_terminal/"    class="pd-dot" aria-label="Side 3"></a>
+    <a href="/site_programming/" class="pd-dot" aria-label="Side 4"></a>
+    <a href="/site_huge/"        class="pd-dot" aria-label="Side 5"></a>
+    <a href="/site_old_school/"  class="pd-dot" aria-current="page" aria-label="Side 6"></a>
+    <a href="/site_minimalist/"  class="pd-dot" aria-label="Side 7"></a>
+    <a href="/site_design/"      class="pd-dot" aria-label="Side 8"></a>
+    <a href="/site_minimalist/"  class="pd-arrow" aria-label="Næste side">&gt;</a>
+  </nav>
+
+  <div id="terminal"></div>
+
+  <script>
+    const lines = [
+      { text: "EMIL/BIOS v2.1  Copyright (C) 1994 Emil Corp.", cls: "cyan", pause: 80 },
+      { text: "640K Base Memory, Extended: COFFEE-DEPENDENT", pause: 60 },
+      { text: "", pause: 40 },
+      { text: "Detecting hardware...", pause: 350 },
+      { text: "  [OK]  KEYBOARD ............. detected", cls: "green", pause: 110 },
+      { text: "  [OK]  DISPLAY .............. CRT 80x25", cls: "green", pause: 110 },
+      { text: "  [OK]  HARD DISK ............ SKILLS.DAT", cls: "green", pause: 110 },
+      { text: "  [OK]  SOUND CARD ........... CLARINET v1.0", cls: "green", pause: 110 },
+      { text: "  [OK]  NETWORK .............. DENMARK", cls: "green", pause: 250 },
+      { text: "", pause: 40 },
+      { text: "Loading ABOUT.SYS", pause: 0, ellipsis: true, ellipsisPause: 600 },
+      { text: "", pause: 40 },
+      { text: "C:\\> dir", cls: "green", pause: 300 },
+      { text: "", pause: 40 },
+      { text: " Volume in drive C is EMIL      Serial No. 1994-DK", pause: 60 },
+      { text: " Directory of C:\\ABOUT", pause: 80 },
+      { text: "", pause: 40 },
+      { text: " [GIS        ] [PYTHON     ] [DATA_ENG   ] [POSTGRESQL ]", cls: "cyan", pause: 70 },
+      { text: " [JAVASCRIPT ] [DOCKER     ] [LINUX      ] [RAG_AI     ]", cls: "cyan", pause: 70 },
+      { text: " [CLARINET   ] [BOOKS      ] [HIKING     ] [FAMILY     ]", cls: "cyan", pause: 70 },
+      { text: " [STATISTICS ] [GEOGRAPHY  ] [GO         ] [C#         ]", cls: "cyan", pause: 150 },
+      { text: "", pause: 40 },
+      { text: "        16 dir(s)       0 bytes free", pause: 250 },
+      { text: "", pause: 40 },
+      { text: "C:\\ABOUT> type README.TXT", cls: "green", pause: 400 },
+      { text: "", pause: 40 },
+      { text: "  NAME ...... Emil Møller Rasmussen", pause: 70 },
+      { text: "  ROLE ...... Data Engineer & GIS Specialist", pause: 70 },
+      { text: "  ORIGIN .... Denmark", pause: 70 },
+      { text: "  LIKES ..... Geography, Music, Culture, Outdoors", pause: 200 },
+      { text: "", pause: 40 },
+      { text: "C:\\ABOUT> _", cls: "green", pause: 0, cursor: true },
+    ];
+
+    const terminal = document.getElementById("terminal");
+    let i = 0;
+
+    function printNext() {
+      if (i >= lines.length) return;
+      const line = lines[i++];
+
+      const el = document.createElement("div");
+      el.className = "line";
+
+      if (line.cursor) {
+        el.innerHTML = '<span class="' + (line.cls || "") + '">' + line.text.slice(0, -1) + '</span><span class="cursor"></span>';
+        terminal.appendChild(el);
+        return;
+      }
+
+      if (line.ellipsis) {
+        el.innerHTML = '<span>' + line.text + '</span><span class="ellipsis-dots"></span>';
+        terminal.appendChild(el);
+        animateEllipsis(el.querySelector(".ellipsis-dots"), line.ellipsisPause || 800, printNext);
+        return;
+      }
+
+      el.innerHTML = line.text
+        ? '<span class="' + (line.cls || "") + '">' + line.text + '</span>'
+        : '&nbsp;';
+      terminal.appendChild(el);
+
+      terminal.scrollTop = terminal.scrollHeight;
+      setTimeout(printNext, line.pause || 60);
+    }
+
+    function animateEllipsis(el, totalPause, cb) {
+      const dots = [".", "..", "..."];
+      let d = 0;
+      const iv = setInterval(() => {
+        el.textContent = dots[d % dots.length];
+        d++;
+      }, 180);
+      setTimeout(() => {
+        clearInterval(iv);
+        el.textContent = "...";
+        cb();
+      }, totalPause);
+    }
+
+    window.addEventListener("load", () => setTimeout(printNext, 300));
+  </script>
 </body>
+</html>

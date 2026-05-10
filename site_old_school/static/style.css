@@ -1,90 +1,156 @@
-:root {
-    --main-color: black;
-    --main-text-color: #aaaaaa;
-    --text-shadow: 555;
-    --second-text-color: #F0F0F4;
-    --navbar-color-start: hsla(328, 75%, 45%, 1);
-    --navbar-color-end:  hsla(269, 85%, 41%, 1);
-}
-
-html {
-    overflow: hidden;
-}
-
 @font-face {
-    font-family: ibm;
-    src: url("./Web437_IBM_VGA_8x16.woff");
+  font-family: ibm;
+  src: url("./Web437_IBM_VGA_8x16.woff");
 }
-body {
-    background-color: var(--main-color);
-    color: var(--main-text-color);
-    font-family: ibm;
-    }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background-color: #000;
+  color: #aaaaaa;
+  font-family: ibm, monospace;
+  /* Scales from 11px on small phones up to 16px on wide screens */
+  font-size: clamp(11px, 2.1vw, 16px);
+  line-height: 1.5;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+/* CRT scanline overlay */
 body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.15),
-        rgba(0, 0, 0, 0.15) 1px,
-        transparent 1px,
-        transparent 2px
-    );
-    pointer-events: none;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.18),
+    rgba(0, 0, 0, 0.18) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 100;
 }
 
-.navbar {
-    background: var(--navbar-color-start);
-    background: linear-gradient(0deg, var(--navbar-color-start) 0%, var(--navbar-color-end) 100%);
-    background: -moz-linear-gradient(0deg, var(--navbar-color-start) 0%, var(--navbar-color-end) 100%);
-    background: -webkit-linear-gradient(0deg, var(--navbar-color-start) 0%, var(--navbar-color-end) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#C81D77", endColorstr="#6710C2", GradientType=1 );
+/* Subtle CRT glow/vignette */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+  z-index: 99;
 }
 
-.title {
-    color: white; 
-    text-shadow: 2px 2px 0 #555;
+#terminal {
+  padding: 1.5rem 2rem;
+  width: 100%;
+  max-width: 760px;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.marker {
-    color: lime;
+.line {
+  white-space: pre;
+  min-height: 1.5em;
 }
 
-.some {
-    color: #FF5555;
+/* Text colors */
+.green  { color: #55ff55; }
+.cyan   { color: #55ffff; }
+.red    { color: #ff5555; }
+
+/* Blinking block cursor */
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  background: #aaaaaa;
+  vertical-align: text-bottom;
+  animation: blink 1.1s step-end infinite;
 }
 
-.other {
-    color: #00ffff;
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
-.is-ribbon {
-    position: absolute;
-    right: var(--right, 10px);
-    top: var(--top, -3px);
-    filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.5));
-    
-z-index: 999;
-  }
-
-body {
-    height: 100vh;
+/* Navigation ribbons */
+.nav-ribbon {
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  text-decoration: none;
 }
-  
+
+.nav-ribbon--left  { left: 10px; }
+.nav-ribbon--right { right: 10px; }
+
 .indhold {
-color: white;
-font-size: 1.25rem;
-text-align: center;
-font-weight: 400;
-background: var(--color, #b597f6) linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
-padding: 8px 2px 4px;
-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
-width: var(--width, 32px);
-min-height: var(--height, 36px);
-transition: clip-path 1s, padding 1s, background 1s;
+  color: #fff;
+  font-size: 1.25rem;
+  text-align: center;
+  font-weight: 400;
+  background: #444 linear-gradient(45deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.15) 100%);
+  padding: 8px 2px 4px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
+  width: 32px;
+  min-height: 36px;
+  filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.7));
 }
+
+/* ── Page dots ── */
+.page-dots {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 100;
+}
+
+.pd-dot {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 100px;
+  background: rgba(0, 255, 0, 0.18);
+  transition: background 0.2s, width 0.25s;
+  flex-shrink: 0;
+}
+
+.pd-dot:hover {
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.pd-dot[aria-current="page"] {
+  width: 20px;
+  background: rgba(0, 255, 0, 0.85);
+}
+
+.pd-arrow {
+  color: rgba(0, 255, 0, 0.3);
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0 3px;
+  transition: color 0.2s;
+}
+.pd-arrow:hover { color: rgba(0, 255, 0, 0.85); }

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ask about emil — cv.rag</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Ask questions about Emil's background and experience">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/static/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+  <header class="chat-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <span class="header-badge">RAG DEMO</span>
+        <h1 class="header-title">Ask about Emil</h1>
+      </div>
+      <p class="header-desc">Answers grounded in his CV via retrieval-augmented generation.</p>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <section class="messages" id="messages" aria-live="polite">
+      <div class="welcome" id="welcome">
+        <p class="welcome-prompt">What would you like to know?</p>
+        <div class="suggestions">
+          <button class="suggestion">What programming languages does Emil work with?</button>
+          <button class="suggestion">What is his GIS and geospatial experience?</button>
+          <button class="suggestion">What AI or RAG projects has he built?</button>
+          <button class="suggestion">What are his interests outside of work?</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="input-row">
+      <div class="input-wrap">
+        <input
+          type="text"
+          id="q"
+          placeholder="Ask a question about Emil…"
+          autocomplete="off"
+          maxlength="300"
+          aria-label="Question"
+        />
+        <button id="send" aria-label="Send question">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // ── Knowledge base ────────────────────────────────────
+    const KB = [
+      {
+        keys: ['language', 'python', 'javascript', 'js', 'go', 'golang', 'c#', 'code', 'program'],
+        answer: 'Emil primarily works with Python for data engineering and analysis. He uses JavaScript regularly, Go for systems work, and has experience with C#. Python is where most of his data science and pipeline work lives.'
+      },
+      {
+        keys: ['gis', 'geospatial', 'geo', 'map', 'spatial', 'geographic', 'geography', 'geoinformatics'],
+        answer: 'GIS and geographic data is Emil\'s main professional domain. He has an academic background in geography and geoinformatics, and works extensively with spatial databases, geodata pipelines, and GIS systems. Most of his data engineering work sits in the geographic space.'
+      },
+      {
+        keys: ['ai', 'rag', 'retrieval', 'llm', 'machine learning', 'ml', 'startup', 'artificial'],
+        answer: 'Emil has built RAG (Retrieval-Augmented Generation) architectures as part of a tech startup. His focus is on grounding language models in real, structured data — making them useful for domain-specific queries rather than general hallucination.'
+      },
+      {
+        keys: ['interest', 'hobby', 'hobbies', 'outside', 'music', 'clarinet', 'guitar', 'free time', 'personal', 'life', 'leisure'],
+        answer: 'Outside of work Emil plays the clarinet — his main instrument — and guitar, which was his first. He enjoys hiking, the opera, theatre, cinema, and museums. He loves travelling; destinations include Greenland, Yosemite, Iceland, the Seychelles, Madeira, and more.'
+      },
+      {
+        keys: ['data', 'engineer', 'engineering', 'database', 'postgresql', 'sql', 'pipeline', 'infrastructure'],
+        answer: 'Emil works as a data engineer with a focus on geographic and statistical data. He has deep experience with PostgreSQL, data pipelines, web workers for offloading workloads, and IT architecture. Statistical registers and econometrics are also part of his background.'
+      },
+      {
+        keys: ['education', 'study', 'university', 'degree', 'academic', 'background', 'school'],
+        answer: 'Emil\'s academic background is in geography and geoinformatics, which directly informs his professional focus on spatial data and GIS systems.'
+      },
+      {
+        keys: ['travel', 'trip', 'visited', 'country', 'countries', 'berlin', 'iceland', 'greenland', 'seychelles', 'madeira', 'yosemite'],
+        answer: 'Emil is an avid traveller. His photography spans Berlin, Greenland, Yosemite, Delos (Greece), Iceland, Edinburgh, the Seychelles, and Madeira — shot on an Olympus E-PL8.'
+      },
+      {
+        keys: ['family', 'summerhouse', 'home', 'danish', 'denmark'],
+        answer: 'Emil is Danish. He has a family and a summerhouse he enjoys spending time at.'
+      },
+    ];
+
+    const FALLBACK = "I don't have a specific answer for that. Try asking about his programming languages, GIS work, AI projects, travels, or interests outside of work.";
+
+    function findAnswer(question) {
+      const q = question.toLowerCase();
+      for (const { keys, answer } of KB) {
+        if (keys.some(k => q.includes(k))) return answer;
+      }
+      return FALLBACK;
+    }
+
+    // ── UI helpers ────────────────────────────────────────
+    const messagesEl = document.getElementById('messages');
+    const inputEl    = document.getElementById('q');
+    const sendBtn    = document.getElementById('send');
+
+    function esc(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function addMessage(role, text) {
+      document.getElementById('welcome')?.remove();
+      const row = document.createElement('div');
+      row.className = `msg msg--${role}`;
+      row.innerHTML = `<div class="bubble">${esc(text)}</div>`;
+      messagesEl.appendChild(row);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function addLoader() {
+      document.getElementById('welcome')?.remove();
+      const row = document.createElement('div');
+      row.className = 'msg msg--assistant';
+      row.innerHTML = `<div class="bubble bubble--loading"><span></span><span></span><span></span></div>`;
+      messagesEl.appendChild(row);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return row;
+    }
+
+    function setDisabled(v) {
+      sendBtn.disabled = v;
+      inputEl.disabled = v;
+    }
+
+    // ── Ask ───────────────────────────────────────────────
+    async function ask(question) {
+      if (!question.trim()) return;
+      inputEl.value = '';
+      setDisabled(true);
+
+      addMessage('user', question);
+      const loader = addLoader();
+
+      // Simulate a brief thinking delay
+      await new Promise(r => setTimeout(r, 500 + Math.random() * 400));
+
+      loader.remove();
+      addMessage('assistant', findAnswer(question));
+
+      setDisabled(false);
+      inputEl.focus();
+    }
+
+    sendBtn.addEventListener('click', () => ask(inputEl.value));
+    inputEl.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { e.preventDefault(); ask(inputEl.value); }
+    });
+    document.querySelectorAll('.suggestion').forEach(btn =>
+      btn.addEventListener('click', () => ask(btn.textContent.trim()))
+    );
+  </script>
+</body>
+</html>

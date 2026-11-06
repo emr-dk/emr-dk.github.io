@@ -1,10 +1,10 @@
 # emr-dk.github.io
 
-Personal website hosted on GitHub Pages. A collection of individual one-page sites linked together in a chain, each with a distinct visual style. No framework or build step — plain HTML, CSS, and vanilla JS.
+Personal website hosted on GitHub Pages. One main site (the lilac page at `/`) plus an archive of older one-page sites, each with a distinct visual style. No framework or build step — plain HTML, CSS, and vanilla JS.
 
 ## Structure
 
-The root `/` is a hub page. It does not participate in the sub-site chain — it links to all sub-sites via a Classic Mac OS terminal listing and a mystery `?` keycap button that navigates to a random sub-site.
+The root `/` is the site. It does not participate in the sub-site chain — its `?` keycap links to `/archive/` (DA) or `/archive/index-en.html` (EN), which list every older site with its date from git. Keep the older sites at their current URLs: they use absolute paths, and the git tag `sites-2026` marks their state when the front page became the only main site.
 
 The 8 sub-sites form a circular chain navigated by `.page-dots` at the bottom of each page:
 
@@ -13,7 +13,7 @@ site_colorful (1) → site_funky (2) → site_terminal (3) → site_programming 
   → site_huge (5) → site_old_school (6) → site_minimalist (7) → site_design (8) → (loops)
 ```
 
-`site_ragchat`, `site_rainbow`, and `site_lazy` exist but are **not in the chain**.
+`site_ragchat`, `site_rainbow`, `site_lazy`, and `site_flow` exist but are **not in the chain**. All of them are listed in the archive.
 
 ## Navigation pattern (page-dots)
 
@@ -38,7 +38,7 @@ Set `aria-current="page"` on the current site's dot. Left arrow links to the pre
 
 ## Index page (`/`)
 
-Redesigned April–May 2026. Two files: `index.html` (EN) and `index-da.html` (DA), linked by a fixed `EN`/`DA` toggle (`.lang-toggle`) in the top-right corner.
+Redesigned April–May 2026. Two files: `index.html` (DA, the default at `/`) and `index-en.html` (EN), linked by a fixed `EN`/`DA` toggle (`.lang-toggle`) in the top-right corner. Danish is the standard/default language site.
 
 ### Palette & fonts
 - Background: lilac `#D4C4F0` throughout all sections
@@ -47,23 +47,26 @@ Redesigned April–May 2026. Two files: `index.html` (EN) and `index-da.html` (D
 
 ### Section order
 1. **Hero** — full-viewport, name in `clamp(4rem, 12vw, 16rem)`, `riseUp` animation (`overflow: hidden` + `translateY(110%)` → 0), 0.2s stagger on second line
-2. **Intro** — flex column, `padding: 6rem 8vw`:
-   - `.intro-text`: bio paragraph ("Emil is a data engineer and GIS specialist…")
-   - `.intro-sub`: CTO line, flex row — `.intro-sub-dash` ("—") + `.intro-sub-text` ("he is also the CTO of aiknowit"), `align-self: flex-end`
-   - `.intro-body`: resume paragraph ("He has worked for agencies, cities, and municipalities*…"), same font size as bio, `margin-top: 20vh`
-   - `.ast`: superscript asterisk after "municipalities" with CSS tooltip (`data-tip`) listing all clients; tooltip floats up on hover
-   - `.currently`: italic "now" line with small-caps `.currently-label` ("Now" / "Nu"), `margin-top: 3rem`
-3. **Socials** — centered flex, `padding: 20vh … 20vh`: `.socials-heading` ("Get in touch") above Email / GitHub / LinkedIn links at `clamp(1.8rem, 4vw, 3.5rem)`
-4. **Explore** — Classic Mac OS terminal (36px title bar, striped `repeating-linear-gradient`, 0.95rem title font, `6px 6px 0` shadow) listing 9 sub-sites + `?` keycap mystery button
+2. **Intro** — flex column, `padding: 6rem clamp(3rem, 18vw, 22rem)` (hero keeps `8vw`):
+   - `.intro-text`: bio paragraph, first person ("I am a data engineer and GIS specialist…"), `clamp(2rem, 5vw, 5rem)`
+   - `.intro-sub`: CTO line, plain paragraph, same size as bio, `margin-top: 12vh` ("I am also the CTO of a small startup…")
+   - `.intro-body`: resume paragraph, first person ("I have worked for agencies, cities, and municipalities…"), `margin-top: 20vh`
+   - `.ast`: superscript asterisk with CSS tooltip — **currently commented out** in both EN and DA
+   - `.currently` removed from both EN and DA
+3. **Socials** — centered flex, `padding: 20vh clamp(3rem, 18vw, 22rem) 20vh`: `.socials-heading` ("Get in touch") above Email / GitHub / LinkedIn links at `clamp(1.8rem, 4vw, 3.5rem)`
+4. **Explore** — `?` keycap with an "Ældre sider" / "Older sites" label, linking to the archive
 5. **`<footer class="site-footer">`** — outside `<main>`, "Emil Møller Rasmussen · 2026", small muted text
 
 ### Commented-out
 - Skills strip (`.skills-strip` / `.skill-icon`) using devicons — HTML commented out in both files, CSS still present. Can be re-enabled. Icons: Python, PostgreSQL, Docker, Go, Bash, Git, Jupyter, Linux via `devicons@v2.15.1` CDN.
+- `.ast` asterisk tooltip after "municipalities" — HTML commented out in both EN and DA, CSS still present.
 
 ### CSS notes
 - No borders between sections (all lilac, seamless)
-- `20vh` vertical rhythm used throughout (intro-sub margin, intro-body margin, socials padding)
+- `20vh` vertical rhythm used throughout (intro-body margin, socials padding); `12vh` before `.intro-sub`
+- Hero padding: `4rem 8vw`; all other sections: `clamp(3rem, 18vw, 22rem)` horizontal
 - `--border` CSS variable exists but is not currently applied to any visible element
+- All body text is first person in both EN and DA versions
 
 ## Shared assets
 
@@ -79,10 +82,11 @@ Each sub-site has its own `static/style.css` and sometimes local fonts.
 
 | Site | Status | Notes |
 |------|--------|-------|
-| `/` (index) | ✅ Done | Lilac editorial hub. Hero name animation, bio, socials, Mac terminal, mystery button. |
+| `/` (index) | ✅ Done | Lilac editorial main site. Hero name animation, bio, socials, `?` door to the archive. |
+| `/archive/` | ✅ Done | Lists all older sites, DA and EN. Shares `/static/style.css`. |
 | `site_colorful` | ✅ Done | Dark bg, Roboto, per-letter colour animation. Dot-nav position 1. |
 | `site_funky` | ✅ Done | Pink bg, Budge font, devicons rain. Bulma removed. Dot-nav position 2. |
-| `site_terminal` | 🔲 Untouched | Typed terminal → penguin scatter chart (Chart.js). Dot-nav position 3. |
+| `site_terminal` | ✅ Done | Interactive shell, no libraries. `static/shell.js` (filesystem, parser, commands, no DOM), `static/sql.js` (SQL engine for `psql`), `static/terminal.js` (page wiring). Dot-nav position 3. |
 | `site_programming` | ✅ Done | Dark bg, dot-grid, VS Code editor aesthetic. JetBrains Mono, GitHub Dark syntax colors, 19-line staggered reveal, mouse spotlight. Dot-nav position 4. |
 | `site_huge` | ✅ Done | Deep red bg, Sofia Sans Extra Condensed wght 1000, giant staggered diagonal text. Dot-nav position 5. |
 | `site_old_school` | ✅ Done | IBM VGA font, CRT scanlines, boot sequence animation. Dot-nav position 6. |
@@ -90,7 +94,8 @@ Each sub-site has its own `static/style.css` and sometimes local fonts.
 | `site_design` | 🔲 Untouched | Editorial serif typography, animate.css. Dot-nav position 8. |
 | `site_ragchat` | ✅ Done | Standalone RAG demo. Light lavender bg, Outfit font, keyword-matched Q&A (no backend). Not in nav chain. |
 | `site_rainbow` | 🔲 Orphaned | Rainbow layered text effect, no nav. |
-| `site_lazy` | 🔲 Orphaned | Unknown state. |
+| `site_lazy` | 🔲 Orphaned | Name and heart. |
+| `site_flow` | 🔲 Orphaned | Name with an aurora effect. |
 
 ## Rules / gotchas
 
@@ -100,4 +105,4 @@ Each sub-site has its own `static/style.css` and sometimes local fonts.
 - **Images in `site_minimalist`** are already resized to 400×400 @ quality 80. Don't re-compress.
 - **`site_funky` devicons only** — custom `icon-*` classes (bicycle, clarinet, etc.) have no font loaded. Only use `devicon-*` classes.
 - **`site_ragchat`** — standalone demo, not wired into nav chain. Uses keyword-matched local Q&A (no backend). Frontend only: `Outfit` font, lavender light theme, pill-shaped input bar. If a real backend is added, it expects `POST /api/ask` → `{ answer: string }`.
-- **Index mystery button** — the `sites` array in the inline script must stay in sync with the terminal listing in the HTML. If you add or remove a sub-site from the terminal, update the array too.
+- **Archive pages** — `archive/index.html` and `archive/index-en.html` are maintained by hand and must list the same sites.

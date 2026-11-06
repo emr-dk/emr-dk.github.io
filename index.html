@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emil Møller Rasmussen</title>
-  <meta name="description" content="Data Engineer & GIS Specialist">
+  <meta name="description" content="Data Engineer & GIS-specialist">
   <meta name="author" content="Emil Møller Rasmussen">
   <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon-big/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-big/favicon-32x32.png">
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="./static/style.css">
 </head>
 <body>
-  <a href="/index-da.html" class="lang-toggle">DA</a>
+  <a href="/index-en.html" class="lang-toggle">EN</a>
   <main>
     <section class="hero">
       <h1 class="hero-name">
@@ -27,8 +27,8 @@
     </section>
 
     <section class="intro">
-      <p class="intro-text">I am a data engineer and GIS specialist. I make sense of geospatial data — and like solving problems that bring real value.</p>
-      <p class="intro-sub">I am also the CTO of a small startup where we're trying to make a product and a difference.</p>
+      <p class="intro-text">Jeg er data engineer og GIS-specialist. Jeg giver mening til geospatiale data — og kan lide at løse problemer, der skaber reel værdi.</p>
+      <p class="intro-sub">Jeg er også CTO for en lille startup, hvor vi forsøger at skabe et produkt og måske gøre en forskel.</p>
       <!-- skills-strip
       <div class="skills-strip">
         <div class="skill-icon"><i class="devicon-python-plain colored"></i><span>Python</span></div>
@@ -41,86 +41,22 @@
         <div class="skill-icon"><i class="devicon-linux-plain"></i><span>Linux</span></div>
       </div>
       -->
-      <p class="intro-body">I have worked for agencies, cities, and municipalities<!-- <span class="ast" data-tip="Geodatastyrelsen · Styrelsen for Dataforsyning og Effektivisering · Forsvarets Materiel- og Indkøbsstyrelse · Copenhagen · Hørsholm">*</span> --> — building the pipelines, shipping the infrastructure, and making geospatial data useful to people who need it.</p>
+      <p class="intro-body">Jeg har arbejdet for styrelser, byer og kommuner<!-- <span class="ast" data-tip="Geodatastyrelsen · Styrelsen for Dataforsyning og Effektivisering · Forsvarets Materiel- og Indkøbsstyrelse · København · Hørsholm">*</span> --> — bygget pipelines, leveret infrastruktur og gjort geospatiale data brugbare for dem, der har brug for det.</p>
     </section>
 
     <section class="socials">
-      <p class="socials-heading">Get in touch</p>
+      <p class="socials-heading">Kom i kontakt</p>
       <a href="mailto:emilmr@pm.me" class="social-link">Email</a>
       <a href="https://github.com/emr-dk" class="social-link">GitHub</a>
       <a href="https://linkedin.com/in/emr-dk" class="social-link">LinkedIn</a>
     </section>
 
     <section class="explore">
-      <div class="terminal">
-        <div class="terminal-bar">
-          <div class="mac-btn" aria-hidden="true"></div>
-          <span class="terminal-title">emr@portfolio — Finder</span>
-          <div class="mac-btn" aria-hidden="true"></div>
-        </div>
-        <div class="terminal-body">
-          <div class="terminal-prompt">
-            <span class="prompt-user">emr@portfolio</span><span class="prompt-sep">:</span><span class="prompt-dir">~</span><span class="prompt-sep">$&nbsp;</span><span class="prompt-cmd" id="typed-cmd"></span><span class="cursor" id="cursor">▋</span>
-          </div>
-          <div class="terminal-output" id="term-output">
-            <div class="term-line"><span class="term-perm">drwxr-xr-x</span><a href="/site_colorful/" class="term-dir">site_colorful/</a></div>
-            <div class="term-line"><span class="term-perm">drwxr-xr-x</span><a href="/site_funky/" class="term-dir">site_funky/</a></div>
-            <div class="term-line"><span class="term-perm">drwxr-xr-x</span><a href="/site_terminal/" class="term-dir">site_terminal/</a></div>
-            <div class="term-line"><span class="term-perm">drwxr-xr-x</span><a href="/site_programming/" class="term-dir">site_programming/</a></div>
-            <div class="term-line"><span class="term-perm">drwxr-xr-x</span><a href="/site_huge/" class="term-dir">site_huge/</a></div>
-            <div class="term-line"><span class="term-perm">drwxr-xr-x</span><a href="/site_old_school/" class="term-dir">site_old_school/</a></div>
-            <div class="term-line"><span class="term-perm">drwxr-xr-x</span><a href="/site_minimalist/" class="term-dir">site_minimalist/</a></div>
-            <div class="term-line"><span class="term-perm">drwxr-xr-x</span><a href="/site_design/" class="term-dir">site_design/</a></div>
-            <div class="term-line"><span class="term-perm">drwxr-xr-x</span><a href="/site_ragchat/" class="term-dir">site_ragchat/</a></div>
-          </div>
-        </div>
-      </div>
-      <button class="mystery-btn" id="mystery-btn" aria-label="Åbn en tilfældig side">?</button>
+      <a class="archive-door" href="/archive/">
+        <span class="mystery-btn" aria-hidden="true">?</span>
+        <span class="archive-door-label">Ældre sider</span>
+      </a>
     </section>
-
-    <script>
-      const sites = [
-        '/site_colorful/', '/site_funky/', '/site_terminal/', '/site_programming/',
-        '/site_huge/', '/site_old_school/', '/site_minimalist/', '/site_design/', '/site_ragchat/'
-      ];
-
-      document.getElementById('mystery-btn').addEventListener('click', function () {
-        this.classList.add('mystery-btn--spinning');
-        setTimeout(() => {
-          window.location.href = sites[Math.floor(Math.random() * sites.length)];
-        }, 600);
-      });
-
-      const cmd = 'ls ./sites/';
-      const typedCmd = document.getElementById('typed-cmd');
-      const cursor = document.getElementById('cursor');
-      const output = document.getElementById('term-output');
-      const lines = [...output.querySelectorAll('.term-line')];
-
-      lines.forEach(l => { l.style.opacity = '0'; l.style.transition = 'opacity 0.15s ease'; });
-
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (prefersReduced) {
-        typedCmd.textContent = cmd;
-        cursor.classList.add('hidden');
-        lines.forEach(l => { l.style.opacity = '1'; });
-      } else {
-        let i = 0;
-        const type = setInterval(() => {
-          typedCmd.textContent += cmd[i++];
-          if (i >= cmd.length) {
-            clearInterval(type);
-            setTimeout(() => {
-              cursor.classList.add('hidden');
-              lines.forEach((line, idx) => {
-                setTimeout(() => { line.style.opacity = '1'; }, idx * 70);
-              });
-            }, 380);
-          }
-        }, 55);
-      }
-    </script>
   </main>
   <footer class="site-footer">Emil Møller Rasmussen &middot; 2026</footer>
 </body>
